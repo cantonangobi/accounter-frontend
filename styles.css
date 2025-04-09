@@ -20,6 +20,10 @@ body{
     height: 100vh;
     background-color: #EEE;
 }
+#logo{
+    margin: 10px;
+    color: #FFF;
+}
 
 #container-signup {
     position: absolute;
