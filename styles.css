@@ -119,12 +119,11 @@ h1,h2{
     justify-content: center;
 }
 
-/* #container-signup {
-    min-width:  ;
-} */
+#container-signup {
+    min-width: 50%;
+}
 #container-signup form{
     margin-top: 20px;
-    /* border: solid; */
     display: flex;
     flex-direction: column;
     padding: 1px;
