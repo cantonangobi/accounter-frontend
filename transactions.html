@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accounter - Accounts</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
+    </head>
+    <body>
+	<header>
+
+		<div id="navbar">
+			<div id="logo">
+				<p><a href="#">Accounter</a></p>
+			</div>
+			<!-- <div id="nav-links"> -->
+				<div id="nav-links">
+					<a class="nav-link" href="index.html">Dashboard</a>
+					<a class="nav-link" href="accounts.html">Accounts</a>
+					<a class="nav-link" href="transactions.html">Transactions</a>
+				</div>
+			<!-- </div> -->
+			<div id="logout">
+				<p><a href="login.html">Logout</a></p>
+			</div>
+		</div>
+	</header>
+	<br><br>
+	<div id="container-accounts">
+		<div id="sidebar-accounts" class="sidebar">
+			<h1>Transactions</h1>
+			<button id="btn-add-account" class="btn-primary">
+				Add Transaction
+			</button>
+			<hr>
+			<form>
+				<h2>Filters</h2>
+				<fieldset>
+					<legend>Accounts</legend>
+					<input type="checkbox"><label>Account 1</label><br>
+					<input type="checkbox"><label>Account 2</label><br>
+					<input type="checkbox"><label>Account 3</label><br>
+				</fieldset>
+				<fieldset>
+					<legend>Categories</legend>
+					<input type="checkbox"><label>Category 1</label><br>
+					<input type="checkbox"><label>Category 2</label><br>
+					<input type="checkbox"><label>Category 3</label><br>
+				</fieldset>
+
+			</form>
+		</div>
+		<div id="conainer-account-list" class="container-list">
+			<a href="#" class="account-item">
+				<span>Transaction Category</span>
+				<span>Account Name</span>
+				<span>Amount</span>
+			</a>
+			<a href="#" class="account-item">
+				<span>Transaction Category</span>
+				<span>Tx Type</span>
+				<span>Amount</span>
+			</a>
+			<div class="account-item">
+				<div class="tx-name-group">
+					<span>Transaction Category</span>
+					<span>Account Name</span>
+				</div>
+				<span>Amount</span>
+			</div>
+			<div class="account-item">
+				<div class="tx-name-group">
+					<span>Transaction Category</span>
+					<span>Account Name</span>
+				</div>
+				<span>Tx Type</span>
+				<span>Amount</span>
+			</div>
+		</div>
+		
+	</div>
+    </body>
+</html>
