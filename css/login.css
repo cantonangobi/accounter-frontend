@@ -1,0 +1,40 @@
+/* Login/signup */
+#login-root{
+    display: flex;
+    position: absolute;
+    top: 0; left: 0;
+}
+.login-half{
+    width: 50vw;
+    height: 100vh;
+}
+#login-left-half{
+    background: #113632;
+    background: linear-gradient(#113632 0%, #309c91 100%); 
+}
+#login-right-half{
+    background-color: #EEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-login {
+    min-width: 50%;
+}
+#container-login form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+}
+
+#container-login input{
+    font-size: inherit;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+

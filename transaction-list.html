@@ -3,7 +3,7 @@
     <head>
         <title>Accounter - Accounts</title>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="css/styles.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
@@ -13,25 +13,21 @@
 
 		<div id="navbar">
 			<div id="logo">
-				<p><a href="#">Accounter</a></p>
+				<a href="#">Accounter</a>
 			</div>
-			<!-- <div id="nav-links"> -->
-				<div id="nav-links">
-					<a class="nav-link" href="index.html">Dashboard</a>
-					<a class="nav-link" href="account-list.html">Accounts</a>
-					<a class="nav-link" href="transaction-list.html">Transactions</a>
-				</div>
-			<!-- </div> -->
-			<div id="logout">
-				<p><a href="login.html">Logout</a></p>
+			<div id="nav-links">
+				<a class="nav-link" href="index.html">Dashboard</a>
+				<a class="nav-link" href="account-list.html">Accounts</a>
+				<a id="nav-link-active" class="nav-link" href="transaction-list.html">Transactions</a>
 			</div>
+			<a id="logout" href="login.html">Logout</a>
 		</div>
 	</header>
 	<br><br>
-	<div id="container-accounts">
+	<div id="container-root">
 		<div id="sidebar-accounts" class="container-primary sidebar">
 			<h1>Transactions</h1>
-			<a id="btn-add-account" class="btn-primary" href="transaction-create.html">
+			<a class="btn-primary" href="transaction-create.html">
 				Add Transaction
 			</a>
 			<hr>
@@ -52,7 +48,7 @@
 				<button class="btn-primary btn-form">Filter</button>
 			</form>
 		</div>
-		<div id="conainer-account-list" class="container-primary container-list">
+		<div id="conainer-account-list" class="container-primary container-list-side">
 			<a href="#" class="account-item">
 				<span>Transaction Category</span>
 				<span>Account Name</span>

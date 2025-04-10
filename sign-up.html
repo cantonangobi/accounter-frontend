@@ -2,33 +2,36 @@
 <html>
     <head>
         <title>Accounter - Sign Up</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/login.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
     </head>
     <body>
-        
-        <div id="left-half" class="half">
-            <div id="logo">
-				<a href="#">Accounter</a>
-			</div>
-	    </div>
-        <div id="right-half" class="half">
-            <div id="container-signup">
-                <h1>Sign Up</h1>
-                <form>
-                    <label>Email</label><br>
-                    <input type="email" placeholder="email" name="email" required><br>
-                    <label>Password</label><br>
-                    <input placeholder="password" name="password" required><br>
-                    <button class="btn-primary btn-form">Sign Up</button><br>
-                </form>
-                <hr>
-                <p>Already have an account? <a href="login.html">Login</a></p>
+        <div id="login-root">
+            <div id="login-left-half" class="login-half">
+                <div id="logo">
+                    <a href="#">Accounter</a>
+                </div>
             </div>
-            
+            <div id="login-right-half" class="login-half">
+                <div id="container-login">
+                    <h1>Sign Up</h1>
+                    <form>
+                        <label>Email</label><br>
+                        <input type="email" placeholder="email" name="email" required><br>
+                        <label>Password</label><br>
+                        <input placeholder="password" name="password" required><br>
+                        <button class="btn-primary btn-form">Sign Up</button><br>
+                    </form>
+                    <hr>
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+                
+            </div>
         </div>
+        
         
     </body>
 </html>
