@@ -2,20 +2,19 @@
 <html>
     <head>
         <title>Accounter - Accounts</title>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/styles.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
     </head>
     <body>
 	<header>
-
 		<div id="navbar">
 			<div id="logo">
 				<a href="#">Accounter</a>
 			</div>
-			<div id="nav-links">
+			<div id="box-nav-links" class="box-horizontal">
 				<a class="nav-link" href="index.html">Dashboard</a>
 				<a id="nav-link-active" class="nav-link" href="account-list.html">Accounts</a>
 				<a class="nav-link" href="transaction-list.html">Transactions</a>
@@ -24,25 +23,25 @@
 		</div>
 	</header>
 	<br><br>
-	<div id="container-root">
-		<div id="sidebar-accounts" class="container-primary sidebar">
+	<div id="box-root">
+		<div id="sidebar-accounts" class="box-vertical box-primary sidebar">
 			<h1>Accounts</h1>
 			<a class="btn-primary" href="account-create.html">Add Account</a>
 		</div>
-		<div id="container-account-list" class="container-primary container-list-side">
-			<a href="account-details.html" class="account-item">
+		<div id="box-account-list" class="box-vertical box-primary box-list-side">
+			<a href="account-details.html" class="list-item">
 				<span>Account Name</span>
 				<span>balance</span>
 			</a>
-			<div class="account-item">
+			<div class="list-item">
 				<span>Account Name</span>
 				<span>balance</span>
 			</div>
-			<div class="account-item">
+			<div class="list-item">
 				<span>Account Name</span>
 				<span>balance</span>
 			</div>
-			<div class="account-item">
+			<div class="list-item">
 				<span>Account Name</span>
 				<span>balance</span>
 			</div>

@@ -19,17 +19,17 @@
     justify-content: center;
 }
 
-#container-login {
+#box-login {
     min-width: 50%;
 }
-#container-login form{
+#box-login form{
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     padding: 1px;
 }
 
-#container-login input{
+#box-login input{
     font-size: inherit;
     padding: 10px;
     margin: 5px;
