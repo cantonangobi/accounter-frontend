@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Accounter - Create Account</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        
+        
+        <div id="container-create">
+            <div id="container-create-form">
+                <h1>Add Transaction</h1>
+                <form>
+                    <label>Type</label><br>
+                    <select name="type">
+                        <option>Expense</option>
+                        <option>Income</option>
+                    </select><br>
+                    <label>Category</label><br>
+                    <select name="category">
+                        <option>Category 1</option>
+                        <option>Category 2</option>
+                        <option>Category 3</option>
+                    </select><br>
+                    <label>Account Name</label><br>
+                    <select name="accountName">
+                        <option>Account 1</option>
+                        <option>Account 2</option>
+                        <option>Account 3</option>
+                    </select><br>
+                    <label>Amount</label><br>
+                    <input type="number" placeholder="Amount" name="amount" required><br>
+                    <button class="btn-primary btn-form">Save</button><br>
+                </form>
+            </div>
+            
+        </div>
+        <a id="btn-back" class="btn-primary" href="transactions.html">Back</a>
+        
+    </body>
+</html>

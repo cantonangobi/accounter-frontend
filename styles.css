@@ -18,6 +18,7 @@ h1,h2{
     border-style: none;
     background-color: #309C91;
     color: #fff;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
@@ -38,6 +39,8 @@ h1,h2{
     flex: 3;
 }
 
+
+/* sidebar */
 .sidebar {
     flex: 1;
     height: 100vh;
@@ -51,7 +54,10 @@ h1,h2{
     color: #AAA;
     margin-top: 50px;
 }
-
+.sidebar form{
+    display: flex;
+    flex-direction: column;
+}
 
 /* navbar */
 
@@ -178,8 +184,9 @@ h1,h2{
     background-color: #F5F5F5;
 }
 #btn-add-account {
-    height: 3em;
-    padding: 20px;
+    height: 2em;
+    padding: 20px 20px 0 20px;
+    text-decoration: none;
 }
 
 .tx-name-group{
@@ -201,30 +208,36 @@ h1,h2{
 }
 
 
-#container-create-account {
+#container-create-form {
     padding: 10px;
     border-radius: 10px;
  
 }
 
 
-#container-create-account h1{
+#container-create-form h1{
     font-weight: normal;
 }
 
-#container-create-account input{
+#container-create-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+#container-create-form input,select{
     font-size: inherit;
-    width: 100%;
+    /* width: 100%; */
     padding: 10px;
     margin: 5px;
     /* margin-right: 20px; */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     border-radius: 10px;
     border-style: none;
+    background-color: #FFF;
 }
-#container-create-account button{
-    width: 100%;
-    margin: 5px 5px 2px 5px;
+.btn-form{
+    /* width: 100%; */
+    margin: 5px;
     
 }
 
