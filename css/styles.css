@@ -11,7 +11,30 @@ h1,h2{
     margin-bottom: 10px;
 }
 
-/* boxs */
+input,select{
+    font-size: inherit;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #FFF;
+    padding: 10px;
+    margin: 5px;
+}
+
+.full-width{
+    width: 100%;
+    
+}
+
+/* boxes */
+
+.box-fullscreen{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 .box-horizontal{
     display: flex;
     flex-direction: row;
@@ -25,18 +48,21 @@ h1,h2{
 .box-primary{
     align-items: center;
     background-color: #EEE;
-    margin: 10px 5px;
+    margin: 15px 5px;
     padding: 20px;
-    border-radius: 10px;
-    
+    border-radius: 10px; 
 }
 
-#box-root{
+.box-secondary{
+    background-color: #EEE;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
 }
 
-.box-list-side{
+
+
+.cols-3{
     flex: 3;
 }
 
@@ -45,9 +71,6 @@ h1,h2{
 .sidebar {
     flex: 1;
     height: 100vh;
-}
-
-.sidebar h1,h2 {
     text-align: center;
 }
 
@@ -56,10 +79,7 @@ h1,h2{
     color: #AAA;
     margin-top: 50px;
 }
-.sidebar form{
-    display: flex;
-    flex-direction: column;
-}
+
 
 /* buttons */
 .btn-primary{
@@ -73,14 +93,32 @@ h1,h2{
 }
 
 .btn-primary:hover {
-    background-color: #38B4A7;
+    background-color: #206c65;
+}
+
+.btn-danger{
+    font-size: inherit;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+}
+
+.btn-danger:hover {
+    background-color: #880000;
 }
 
 .btn-form{
     margin: 5px;
 }
 
-
+.btn-back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
 
 
 /* navbar */
@@ -98,7 +136,7 @@ h1,h2{
     padding-top: 10px;
 }
 
-#box-nav-links {
+#nav-links {
     height: 100%;
     align-items: center;
     margin-left: 50px;
@@ -162,53 +200,7 @@ h1,h2{
     background-color: #F5F5F5;
 }
 
-
-
-/* add account */
-#box-create {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #EEE;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#account-details{
+    justify-content: space-between;
 }
 
-
-#box-create-form {
-    padding: 10px;
-    border-radius: 10px;
- 
-}
-
-
-#box-create-form h1{
-    font-weight: normal;
-}
-
-#box-create-form form{
-    display: flex;
-    flex-direction: column;
-}
-
-#box-create-form input,select{
-    font-size: inherit;
-    /* width: 100%; */
-    padding: 10px;
-    margin: 5px;
-    /* margin-right: 20px; */
-    /* box-sizing: border-box; */
-    border-radius: 10px;
-    border-style: none;
-    background-color: #FFF;
-}
-
-
-#btn-back {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
