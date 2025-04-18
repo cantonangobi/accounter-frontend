@@ -6,6 +6,7 @@
         <title>Accounter - Accounts</title>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="/css/account.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
@@ -36,25 +37,147 @@
 				<h2>Filters</h2>
 				<fieldset>
 					<legend>Accounts</legend>
-					<input type="checkbox"><label>Account 1</label><br>
-					<input type="checkbox"><label>Account 2</label><br>
-					<input type="checkbox"><label>Account 3</label><br>
+					<input type="checkbox" checked><label>Account 1</label><br>
+					<input type="checkbox" checked><label>Account 2</label><br>
+					<input type="checkbox" checked><label>Account 3</label><br>
 				</fieldset>
 				<fieldset>
 					<legend>Categories</legend>
-					<input type="checkbox"><label>Category 1</label><br>
-					<input type="checkbox"><label>Category 2</label><br>
-					<input type="checkbox"><label>Category 3</label><br>
+					<input type="checkbox" checked><label>Category 1</label><br>
+					<input type="checkbox" checked><label>Category 2</label><br>
+					<input type="checkbox" checked><label>Category 3</label><br>
 				</fieldset>
 				<button class="btn-primary btn-form">Filter</button>
 			</form>
 		</div>
 		<div class="box-vertical box-primary cols-3">
-			<a href="#" class="list-item">
-				<span>Transaction Category</span>
-				<span>Account Name</span>
-				<span>Amount</span>
-			</a>
+			<div class="box-vertical full-width date-container">
+				<div class="date-line">2025-04-15:</div>
+				<div href="#" class="list-item">
+					<span>Food</span>
+					<span>Cash</span>
+					<span>KES 500</span>
+					<div class="box-horizontal">
+						<a class="btn-primary" href="transaction-update.html">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" onclick="confirm('Are you sure?')" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Transport</span>
+					<span>Cash</span>
+					<span>KES 80</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Transport</span>
+					<span>Mpesa</span>
+					<span>KES 100</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Home</span>
+					<span>Mpesa</span>
+					<span>KES 1000</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="box-vertical full-width date-container">
+				<div class="date-line">2025-04-14:</div>
+				<div href="#" class="list-item">
+					<span>Food</span>
+					<span>Mpesa</span>
+					<span>KES 140</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Transport</span>
+					<span>Bank</span>
+					<span>KES 620</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="box-vertical full-width date-container">
+				<div class="date-line">2025-04-10:</div>
+				<div href="#" class="list-item">
+					<span>Income</span>
+					<span>Bank</span>
+					<span>KES 20000</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Transport</span>
+					<span>Cash</span>
+					<span>KES 80</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div href="#" class="list-item">
+					<span>Enjoyment</span>
+					<span>Mpesa</span>
+					<span>KES 600</span>
+					<div class="box-horizontal">
+						<a class="btn-primary">
+							<i class="fa fa-pencil" aria-hidden="true"></i>
+						</a>
+						<button name="delete" class="btn-danger">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
 			<a href="#" class="list-item">
 				<span>Transaction Category</span>
 				<span>Tx Type</span>

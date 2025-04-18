@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Accounter - Create Account</title>
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/account.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nova+Round&display=swap" rel="stylesheet">
@@ -12,10 +13,11 @@
     <body>
         
         
-        <div id="box-create" class="box-fullscreen box-secondary">
+        <div class="box-fullscreen box-secondary">
+            <a class="btn-primary btn-back" href="account-list.html">Back</a>
             <div id="box-create-form" class="box-vertical">
                 <h1>Add Account</h1>
-                <form class="box-vertical">
+                <form id="form-create-account" class="box-vertical">
                     <label>Account Name</label><br>
                     <input type="text" placeholder="Account Name" name="accountName" required><br>
                     <label>Starting Balance</label><br>
@@ -25,7 +27,7 @@
             </div>
             
         </div>
-        <a class="btn-primary btn-back" href="account-list.html">Back</a>
+        <!-- <a class="btn-primary btn-back" href="account-list.html">Back</a> -->
         
     </body>
 </html>

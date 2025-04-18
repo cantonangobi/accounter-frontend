@@ -8,9 +8,20 @@ body{
 
 h1,h2{
     font-weight: normal;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    /* margin: 5px; */
 }
 
+/* p{
+    margin: 10px 0;
+} */
+
+hr{
+    width: 100%;
+    /* height: 0.1px; */
+    color: #777;
+    background-color: #777;
+}
 input,select{
     font-size: inherit;
     border-radius: 10px;
@@ -49,7 +60,7 @@ input,select{
     align-items: center;
     background-color: #EEE;
     margin: 15px 5px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px; 
 }
 
@@ -69,10 +80,12 @@ input,select{
 /* sidebar */
 .sidebar {
     flex: 1;
-    height: 100vh;
+    min-height: 100vh;
+    
+}
+.sidebar h1,h2{
     text-align: center;
 }
-
 .sidebar hr {
     width: 75%;    
     color: #AAA;
@@ -93,8 +106,12 @@ input,select{
 
 .btn-primary:hover {
     background-color: #206c65;
+    cursor: pointer;
 }
-
+.btn-primary:active {
+    background-color: black;
+    cursor: pointer;
+}
 .btn-danger{
     font-size: inherit;
     padding: 10px;
@@ -107,18 +124,53 @@ input,select{
 
 .btn-danger:hover {
     background-color: #880000;
+    cursor: pointer;
 }
 
 .btn-form{
     margin: 5px;
+    text-align: center;
 }
 
 .btn-back {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    /* position: absolute; */
+    /* top: 10px;
+    left: 10px; */
+    
+    /* justify-self: start; */
+    align-self: flex-start;
+    margin-right: auto;
+
+    margin-top: 5px;
+    margin-left: 5px;
+    /* margin-bottom: auto;
+    margin-right: auto; */
+    /* position: absolute;
+    top: 5px;
+    left: 5px; */
 }
 
+.flex-left{
+    align-items:start;
+}
+
+.flex-right{
+    align-items: end;
+}
+
+.flex-space{
+    justify-content: space-between;
+    /* align-items:; */
+}
+
+.margin-auto{
+    margin-right: auto;
+    /* margin-top: 0;
+    margin-bottom: 0; */
+}
+.fill-width{
+    width: 100%;
+}
 
 /* navbar */
 
@@ -176,30 +228,4 @@ input,select{
 }
 
 
-
-/* accounts and transactions */
-.list-item {
-    height: 80px;
-    width: 100%;
-    border-style: solid;
-    background-color: white;
-    margin: 5px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border-color: #666;
-    border-width: 2px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    color: black;
-    text-decoration: none;
-}
-.list-item:hover{
-    background-color: #F5F5F5;
-}
-
-#account-details{
-    justify-content: space-between;
-}
 
