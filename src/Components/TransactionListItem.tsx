@@ -1,4 +1,4 @@
-function AccountListItem() {
+function TransactionListItem() {
 	return (
 		<div className="transaction-list-item card p-4 m-2">
 			<div className="row">
@@ -10,4 +10,4 @@ function AccountListItem() {
 	);
 }
 
-export default AccountListItem;
+export default TransactionListItem;
