@@ -8,12 +8,6 @@ function AccountList() {
 			<AccountListItem />
 			<AccountListItem />
 			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
 		</div>
 	);
 }
