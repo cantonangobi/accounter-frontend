@@ -1,10 +1,15 @@
+import BtnDelete from "./BtnDelete";
+
 function TransactionListItem() {
 	return (
-		<div className="transaction-list-item card p-4 m-2">
-			<div className="row">
-				<div className="col-4 text-start">Category</div>
-				<div className="col-4 text-start">Account</div>
-				<div className="col-4 text-start">Amount</div>
+		<div className="transaction-list-item card px-4 py-3 m-2">
+			<div className="row text-start">
+				<span className="col-4">Category</span>
+				<span className="col-3">Account</span>
+				<span className="col-3">Amount</span>
+				<span className="col-2 text-end ">
+					<BtnDelete />
+				</span>
 			</div>
 		</div>
 	);
