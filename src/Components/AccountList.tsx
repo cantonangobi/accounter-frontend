@@ -2,7 +2,13 @@ import AccountListItem from "./AccountListItem";
 
 function AccountList() {
 	return (
-		<div className="col-8 m-4 full-height border container">
+		<div className="card p-2 container-fluid min-h-100 h-md-auto ">
+			<AccountListItem />
+			<AccountListItem />
+			<AccountListItem />
+			<AccountListItem />
+			<AccountListItem />
+			<AccountListItem />
 			<AccountListItem />
 			<AccountListItem />
 			<AccountListItem />
