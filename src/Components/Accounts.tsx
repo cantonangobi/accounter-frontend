@@ -1,11 +1,13 @@
 import AccountList from "./AccountList";
-import AccountSideBar from "./AccountSidebar";
+import AccountSideBar from "./AccountSideBar";
 
 function Accounts() {
 	return (
 		<main>
-			<AccountSideBar />
-			<AccountList />
+			<div className="row">
+				<AccountSideBar />
+				<AccountList />
+			</div>
 		</main>
 	);
 }
