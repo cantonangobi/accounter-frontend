@@ -29,7 +29,7 @@ function Header() {
 							</li>
 							<li>
 								<a
-									href="#"
+									href="/transactions"
 									className="nav-link px-2 link-body-emphasis text-white"
 								>
 									Transactions
