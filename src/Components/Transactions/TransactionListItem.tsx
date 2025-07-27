@@ -1,5 +1,5 @@
-import BtnDelete from "./BtnDelete";
-import BtnEdit from "./BtnEdit";
+import BtnDelete from "../All/BtnDelete";
+import BtnEdit from "../All/BtnEdit";
 
 function TransactionListItem() {
 	return (
