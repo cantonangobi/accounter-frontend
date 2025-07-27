@@ -1,6 +1,3 @@
-import BtnDelete from "../All/BtnDelete";
-import BtnEdit from "../All/BtnEdit";
-import TransactionList from "../Transactions/TransactionList";
 import TransactionListItem from "../Transactions/TransactionListItem";
 
 function AccountDetails() {
