@@ -1,7 +1,7 @@
 function Header() {
 	return (
 		<>
-			<header className="bg-success  p-1 mb-2 border-bottom sticky-top">
+			<header className="bg-main  p-1 mb-2 border-bottom sticky-top">
 				<div className="container-fluid">
 					<div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 						<a

@@ -2,7 +2,7 @@ import BtnDelete from "./BtnDelete";
 
 function TransactionListItem() {
 	return (
-		<div className="transaction-list-item card px-4 py-3 m-2">
+		<div className="transaction-list-item card px-4 py-2 m-1">
 			<div className="row text-start">
 				<div className="col-4 py-2">
 					<span>Category</span>

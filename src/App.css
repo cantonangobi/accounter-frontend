@@ -1,12 +1,29 @@
 body{
   height: 100vh;
 }
+#header{
+  background-color: #309C91;
+}
+.bg-main{
+  background-color: #309C91;
+}
+.btn-main{
+  background-color: #309C91;
+  color: white;
+}
+.btn-main:hover{
+  background-color: #206c65;
+  color: white;
+}
+
 .font-nova {
   font-family: "Nova Round", system-ui;
   font-weight:400;
   font-size: 2.2em;
   font-style: normal;
 }
+
+
 
 .nav-font {
   font-size: 1.4em;
