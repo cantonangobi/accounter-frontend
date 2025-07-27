@@ -10,7 +10,7 @@ function AccountDetails() {
 						<h1 className="text-start">Account Details</h1>
 						<span className="my-auto">
 							<button
-								className="btn btn-main p-1 mx-tiny"
+								className="btn btn-main py-1 px-2 mx-tiny"
 								type="button"
 								data-bs-toggle="modal"
 								data-bs-target="#edit-account-modal"
@@ -19,7 +19,7 @@ function AccountDetails() {
 								Edit
 							</button>
 							<EditAccount />
-							<button className="btn btn-danger p-1 mx-tiny">
+							<button className="btn btn-danger py-1 px-2 mx-tiny">
 								<i className="fa-solid fa-trash"></i>
 								Delete
 							</button>

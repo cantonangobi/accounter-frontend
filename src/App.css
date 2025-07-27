@@ -6,6 +6,10 @@ body{
   background-color: #206c65;
   /* background: linear-gradient(90deg, #113632 0%, #206c65 100%);  */
 }
+
+.btn{
+  border-radius: 1em;
+}
 .btn-main{
   background-color: #309C91;
   color: white;
