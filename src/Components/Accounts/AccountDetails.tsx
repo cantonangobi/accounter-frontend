@@ -3,49 +3,49 @@ import EditAccount from "./EditAccount";
 
 function AccountDetails() {
 	return (
-		<main className="container-fluid h-100 ">
-			<div className="d-flex h-100 flex-column">
-				<div className="card">
-					<div className="card-header d-flex justify-content-between">
-						<h1 className="text-start">Account Details</h1>
-						<span className="my-auto">
-							<button
-								className="btn btn-main py-1 px-2 mx-tiny"
-								type="button"
-								data-bs-toggle="modal"
-								data-bs-target="#edit-account-modal"
-							>
-								<i className="fa-solid fa-pencil"></i>
-								Edit
-							</button>
-							<EditAccount />
-							<button className="btn btn-danger py-1 px-2 mx-tiny">
-								<i className="fa-solid fa-trash"></i>
-								Delete
-							</button>
-						</span>
-					</div>
-					<div className="card-body m-1 p-2 text-start">
-						<div className="m-2">
-							<strong>Name:</strong> Account Name
-						</div>
-
-						<div className="m-2">
-							<strong>Balance:</strong> Account Balance
-						</div>
-					</div>
-					{/* <div className="card-footer"></div> */}
+		<main className="container-fluid d-flex flex-column h-100">
+			<div className="card">
+				<div className="card-header d-flex justify-content-between">
+					<h1 className=" m-0">Account Details</h1>
+					<span className="my-auto">
+						<button
+							className="btn btn-main py-1 px-2 mx-tiny"
+							type="button"
+							data-bs-toggle="modal"
+							data-bs-target="#edit-account-modal"
+						>
+							<i className="fa-solid fa-pencil"></i>
+							Edit
+						</button>
+						<EditAccount />
+						<button className="btn btn-danger py-1 px-2 mx-tiny">
+							<i className="fa-solid fa-trash"></i>
+							Delete
+						</button>
+					</span>
 				</div>
-				<div className="card my-2 flex-fill">
-					<div className="card-header text-start">
-						<h2>Transactions</h2>
+				<div className="card-body m-1 px-4 text-start fs-4">
+					<div className="my-2">
+						<strong className="fs-3">Account Name:</strong> Account
+						Name
 					</div>
-					<div className="card-body p-1">
-						<TransactionListItem />
-						<TransactionListItem />
-						<TransactionListItem />
-						<TransactionListItem />
+
+					<div className="my-2">
+						<strong className="fs-3">Balance:</strong> Account
+						Balance
 					</div>
+				</div>
+				{/* <div className="card-footer"></div> */}
+			</div>
+			<div className="card my-2 flex-fill">
+				<div className="card-header text-start">
+					<h2 className="m-0">Transactions</h2>
+				</div>
+				<div className="card-body p-1">
+					<TransactionListItem />
+					<TransactionListItem />
+					<TransactionListItem />
+					<TransactionListItem />
 				</div>
 			</div>
 		</main>

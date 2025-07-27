@@ -1,6 +1,6 @@
 function Login() {
 	return (
-		<main className="container-fluid h-100">
+		<main className="container-fluid flex-fill">
 			<div className="row h-100">
 				<div className="col-12 col-sm-6 bg-main h-100 text-start p-3">
 					<h1 className="text-white font-nova">Accounter</h1>
@@ -36,7 +36,8 @@ function Login() {
 							/>
 							<label
 								className="form-check-label"
-								htmlFor="stay-logged-in">
+								htmlFor="stay-logged-in"
+							>
 								Keep me logged in
 							</label>
 						</div>

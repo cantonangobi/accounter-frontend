@@ -2,6 +2,9 @@ body{
   height: 100vh;
 }
 
+strong{
+  font-weight: 600;
+}
 .bg-main{
   background-color: #206c65;
   /* background: linear-gradient(90deg, #113632 0%, #206c65 100%);  */
