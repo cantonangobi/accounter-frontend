@@ -6,7 +6,7 @@ import TransactionListItem from "../Transactions/TransactionListItem";
 function AccountDetails() {
 	return (
 		<main className="container-fluid h-100 ">
-			<div className="container-fluid ">
+			<div className="d-flex h-100 flex-column">
 				<div className="card">
 					<div className="card-header d-flex justify-content-between">
 						<h1 className="text-start">Account Details</h1>
@@ -30,7 +30,7 @@ function AccountDetails() {
 					</div>
 					{/* <div className="card-footer"></div> */}
 				</div>
-				<div className="card my-2">
+				<div className="card my-2 flex-fill">
 					<div className="card-header text-start">
 						<h2>Transactions</h2>
 					</div>
