@@ -9,6 +9,7 @@ import Header from "./Components/Header";
 import Dashboard from "./Components/DashBoard";
 import Transactions from "./Components/Transactions";
 import Login from "./Components/Login";
+import SignUp from "./Components/Sign Up";
 // import SignUp from "./Components/SignUp";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
 	return (
 		<>
-			<Login />
+			<SignUp />
 			{/* <Header />
 			<Router>
 				<Routes>
