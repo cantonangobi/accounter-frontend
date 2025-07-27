@@ -1,11 +1,10 @@
 body{
   height: 100vh;
 }
-#header{
-  background-color: #309C91;
-}
+
 .bg-main{
-  background-color: #309C91;
+  background-color: #206c65;
+  /* background: linear-gradient(90deg, #113632 0%, #206c65 100%);  */
 }
 .btn-main{
   background-color: #309C91;
