@@ -6,32 +6,28 @@ function Header() {
 					<div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 						<a
 							href="/"
-							className="font-nova d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none text-white"
-						>
+							className="logo font-nova d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none text-white">
 							Accounter
 						</a>
 						<ul className="nav-font nav col-12 col-lg-auto mx-5 me-lg-auto mb-2 justify-content-center mb-md-0">
 							<li>
 								<a
 									href="/"
-									className="nav-link px-2 text-white link-body-emphasis"
-								>
+									className="nav-link px-2 text-white link-body-emphasis">
 									Dashboard
 								</a>
 							</li>
 							<li>
 								<a
 									href="/accounts"
-									className="nav-link px-2 link-body-emphasis text-white"
-								>
+									className="nav-link px-2 link-body-emphasis text-white">
 									Accounts
 								</a>
 							</li>
 							<li>
 								<a
 									href="/transactions"
-									className="nav-link px-2 link-body-emphasis text-white"
-								>
+									className="nav-link px-2 link-body-emphasis text-white">
 									Transactions
 								</a>
 							</li>
@@ -41,8 +37,7 @@ function Header() {
 								href="#"
 								className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
 								data-bs-toggle="dropdown"
-								aria-expanded="false"
-							>
+								aria-expanded="false">
 								<img
 									src="src/assets/profile.png"
 									alt="profile"

@@ -17,15 +17,16 @@ function App() {
 
 	return (
 		<>
-			<SignUp />
-			{/* <Header />
+			{/* <SignUp /> */}
+			{/* <Login /> */}
+			<Header />
 			<Router>
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
 					<Route path="/accounts" element={<Accounts />} />
 					<Route path="/transactions" element={<Transactions />} />
 				</Routes>
-			</Router> */}
+			</Router>
 		</>
 	);
 }
