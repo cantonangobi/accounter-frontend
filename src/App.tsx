@@ -10,6 +10,7 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 import Transactions from "./Components/Transactions/Transactions";
 import Login from "./Components/Security/Login";
 import SignUp from "./Components/Security/Sign Up";
+import AccountDetails from "./Components/Accounts/AccountDetails";
 // import SignUp from "./Components/SignUp";
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
 					<Route path="/accounts" element={<Accounts />} />
+					<Route
+						path="/account-details"
+						element={<AccountDetails />}
+					/>
 					<Route path="/transactions" element={<Transactions />} />
 				</Routes>
 			</Router>
