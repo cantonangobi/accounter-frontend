@@ -4,12 +4,20 @@ function TransactionListItem() {
 	return (
 		<div className="transaction-list-item card px-4 py-3 m-2">
 			<div className="row text-start">
-				<span className="col-4">Category</span>
-				<span className="col-3">Account</span>
-				<span className="col-3">Amount</span>
-				<span className="col-2 text-end ">
+				<div className="col-4 py-2">
+					<span>Category</span>
+				</div>
+				<div className="col-4 py-2">
+					<span>Account</span>
+				</div>
+				<div className="col-3 py-2">
+					<span>Amount</span>
+				</div>
+				{/* <span className="col-4">Account</span>
+				<span className="col-3">Amount</span> */}
+				<div className="col-1 text-end ">
 					<BtnDelete />
-				</span>
+				</div>
 			</div>
 		</div>
 	);
