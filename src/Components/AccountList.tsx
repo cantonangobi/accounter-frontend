@@ -1,5 +1,4 @@
 import AccountListItem from "./AccountListItem";
-import TransactionListItem from "./TransactionListItem";
 
 function AccountList() {
 	return (
@@ -9,7 +8,6 @@ function AccountList() {
 			<AccountListItem />
 			<AccountListItem />
 			<AccountListItem />
-			<TransactionListItem />
 		</div>
 	);
 }
