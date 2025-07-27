@@ -8,18 +8,22 @@ import Accounts from "./Components/Accounts";
 import Header from "./Components/Header";
 import Dashboard from "./Components/DashBoard";
 import Transactions from "./Components/Transactions";
+import Login from "./Components/Login";
 
 function App() {
+	// let [logged_in, change_login] = useState(false);
+
 	return (
 		<>
-			<Header />
+			<Login />
+			{/* <Header />
 			<Router>
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
 					<Route path="/accounts" element={<Accounts />} />
 					<Route path="/transactions" element={<Transactions />} />
 				</Routes>
-			</Router>
+			</Router> */}
 		</>
 	);
 }
