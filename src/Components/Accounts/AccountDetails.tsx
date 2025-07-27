@@ -1,4 +1,5 @@
 import TransactionListItem from "../Transactions/TransactionListItem";
+import EditAccount from "./EditAccount";
 
 function AccountDetails() {
 	return (
@@ -8,9 +9,15 @@ function AccountDetails() {
 					<div className="card-header d-flex justify-content-between">
 						<h1 className="text-start">Account Details</h1>
 						<span className="my-auto">
-							<button className="btn btn-main p-1 mx-tiny">
+							<button
+								className="btn btn-main p-1 mx-tiny"
+								type="button"
+								data-bs-toggle="modal"
+								data-bs-target="#edit-account-modal"
+							>
 								Edit
 							</button>
+							<EditAccount />
 							<button className="btn btn-danger p-1 mx-tiny">
 								Delete
 							</button>

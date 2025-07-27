@@ -6,20 +6,23 @@ function EditAccount() {
 					<div className="modal-header border-0">
 						<h1
 							className="modal-title fs-3"
-							id="edit-account-modal-label">
-							Create Account
+							id="edit-account-modal-label"
+						>
+							Edit Account
 						</h1>
 						<button
 							type="button"
 							className="btn-close"
-							data-bs-dismiss="modal"></button>
+							data-bs-dismiss="modal"
+						></button>
 					</div>
 					<div className="modal-body">
 						<form className="text-start">
 							<div className="mb-3">
 								<label
 									htmlFor="account-name"
-									className="form-label">
+									className="form-label"
+								>
 									Account Name
 								</label>
 								<input
@@ -42,8 +45,9 @@ function EditAccount() {
 							</div>
 							<button
 								type="submit"
-								className="btn btn-main w-100">
-								Create Account
+								className="btn btn-main w-100"
+							>
+								Save
 							</button>
 						</form>
 					</div>
