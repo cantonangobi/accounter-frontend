@@ -15,10 +15,12 @@ function AccountDetails() {
 								data-bs-toggle="modal"
 								data-bs-target="#edit-account-modal"
 							>
+								<i className="fa-solid fa-pencil"></i>
 								Edit
 							</button>
 							<EditAccount />
 							<button className="btn btn-danger p-1 mx-tiny">
+								<i className="fa-solid fa-trash"></i>
 								Delete
 							</button>
 						</span>
