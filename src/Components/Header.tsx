@@ -1,16 +1,16 @@
 function Header() {
 	return (
 		<>
-			<header className="bg-success  p-3 mb-2 border-bottom sticky-top">
+			<header className="bg-success  p-1 mb-2 border-bottom sticky-top">
 				<div className="container-fluid">
 					<div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 						<a
 							href="/"
-							className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none text-white"
+							className="font-nova d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none text-white"
 						>
 							Accounter
 						</a>
-						<ul className="nav col-12 col-lg-auto mx-4 me-lg-auto mb-2 justify-content-center mb-md-0">
+						<ul className="nav-font nav col-12 col-lg-auto mx-5 me-lg-auto mb-2 justify-content-center mb-md-0">
 							<li>
 								<a
 									href="/"
@@ -36,7 +36,7 @@ function Header() {
 								</a>
 							</li>
 						</ul>
-						<div className="dropdown text-end">
+						<div className="dropdown text-end ">
 							<a
 								href="#"
 								className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
@@ -46,8 +46,8 @@ function Header() {
 								<img
 									src="src/assets/profile.png"
 									alt="profile"
-									width="32"
-									height="32"
+									width="40"
+									height="40"
 									className="rounded-circle"
 								/>
 							</a>
