@@ -1,4 +1,5 @@
 import BtnDelete from "./BtnDelete";
+import BtnEdit from "./BtnEdit";
 
 function TransactionListItem() {
 	return (
@@ -10,12 +11,12 @@ function TransactionListItem() {
 				<div className="col-3 py-2">
 					<span>Account</span>
 				</div>
-				<div className="col-3 py-2">
+				<div className="col-3 py-2 text-end">
 					<span>Amount</span>
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>
-						<BtnDelete />
+						<BtnEdit />
 						<BtnDelete />
 					</span>
 				</div>
