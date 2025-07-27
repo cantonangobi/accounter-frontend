@@ -9,39 +9,34 @@ function Login() {
 					<form className="w-50 m-auto text-start">
 						<h1 className="mb-3">Log In</h1>
 						<div className="mb-3">
-							<label
-								htmlFor="exampleInputEmail1"
-								className="form-label">
+							<label htmlFor="email" className="form-label">
 								Email address
 							</label>
 							<input
 								type="email"
 								className="form-control"
-								id="exampleInputEmail1"
-								aria-describedby="emailHelp"
+								id="email"
 							/>
 						</div>
 						<div className="mb-3">
-							<label
-								htmlFor="exampleInputPassword1"
-								className="form-label">
+							<label htmlFor="password" className="form-label">
 								Password
 							</label>
 							<input
 								type="password"
 								className="form-control"
-								id="exampleInputPassword1"
+								id="password"
 							/>
 						</div>
 						<div className="mb-3 form-check">
 							<input
 								type="checkbox"
 								className="form-check-input"
-								id="exampleCheck1"
+								id="stay-logged-in"
 							/>
 							<label
 								className="form-check-label"
-								htmlFor="exampleCheck1">
+								htmlFor="stay-logged-in">
 								Keep me logged in
 							</label>
 						</div>

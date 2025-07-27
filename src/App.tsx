@@ -9,6 +9,7 @@ import Header from "./Components/Header";
 import Dashboard from "./Components/DashBoard";
 import Transactions from "./Components/Transactions";
 import Login from "./Components/Login";
+// import SignUp from "./Components/SignUp";
 
 function App() {
 	// let [logged_in, change_login] = useState(false);
