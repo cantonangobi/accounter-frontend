@@ -23,7 +23,10 @@ body{
 }
 
 
-
+.mx-tiny{
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
 .nav-font {
   font-size: 1.4em;
   color: white;
@@ -35,6 +38,13 @@ body{
   font-style: normal;
 }
 
+.list-item{
+  text-decoration: none;
+}
+
+.list-item:hover{
+  background-color: #F0F0F0;
+}
 #root {
   /* max-width: 1280px; */
   margin: 0 auto;
