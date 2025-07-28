@@ -1,12 +1,12 @@
 function EditTransaction() {
 	return (
-		<div className="modal fade" id="create-transaction-modal" tabIndex={-1}>
+		<div className="modal fade" id="edit-transaction-modal" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
 				<div className="modal-content">
 					<div className="modal-header border-0">
 						<h1
 							className="modal-title fs-3"
-							id="create-transaction-modal-label"
+							id="edit-transaction-modal-label"
 						>
 							Edit Transaction
 						</h1>

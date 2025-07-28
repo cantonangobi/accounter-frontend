@@ -1,5 +1,6 @@
 import BtnDelete from "../All/BtnDelete";
 import BtnEdit from "../All/BtnEdit";
+import EditTransaction from "./EditTransaction";
 
 function TransactionListItem() {
 	return (
@@ -16,7 +17,15 @@ function TransactionListItem() {
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>
-						<BtnEdit />
+						<button
+							className="btn btn-main py-1 px-2 mx-tiny"
+							type="button"
+							data-bs-toggle="modal"
+							data-bs-target="#edit-transaction-modal"
+						>
+							<i className="fa-solid fa-pencil"></i>
+						</button>
+						<EditTransaction />
 						<BtnDelete />
 					</span>
 				</div>
