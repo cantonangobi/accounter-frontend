@@ -19,6 +19,36 @@ function CreateTransaction() {
 					<div className="modal-body">
 						<form className="text-start">
 							<div className="mb-3">
+								<div className="input-group d-flex mb-3 w-100">
+									<input
+										type="radio"
+										className="btn-check invisible"
+										name="type"
+										id="expense"
+										autoComplete="off"
+									/>
+									<label
+										className="btn btn-outline-primary flex-fill"
+										htmlFor="expense"
+									>
+										Expense
+									</label>
+
+									<input
+										type="radio"
+										className="btn-check"
+										name="type"
+										id="income"
+										autoComplete="off"
+									/>
+									<label
+										className="btn btn-outline-primary flex-fill"
+										htmlFor="income"
+									>
+										Income
+									</label>
+								</div>
+
 								<div className="mb-3">
 									<label
 										htmlFor="amount"
@@ -33,30 +63,48 @@ function CreateTransaction() {
 										required
 									/>
 								</div>
-								<select
-									className="form-select"
-									aria-label="Default select example"
-								>
-									<option selected>
-										Open this select menu
-									</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								</select>
-
-								<label
-									htmlFor="account-name"
-									className="form-label"
-								>
-									Account Name
-								</label>
-								<input
-									type="text"
-									className="form-control"
-									id="account-name"
-									required
-								/>
+								<div className="mb-3">
+									<label
+										htmlFor="select-account"
+										className="form-label"
+									>
+										Account
+									</label>
+									<select
+										className="form-select"
+										aria-label="Default select example"
+										id="select-account"
+										required
+									>
+										<option selected value="1">
+											Account 1
+										</option>
+										<option value="2">Account 2</option>
+										<option value="3">Account 3</option>
+										<option value="4">Account 4</option>
+									</select>
+								</div>
+								<div className="mb-3">
+									<label
+										htmlFor="select-account"
+										className="form-label"
+									>
+										Category
+									</label>
+									<select
+										className="form-select"
+										aria-label="Default select example"
+										id="select-account"
+										required
+									>
+										<option selected value="1">
+											Category 1
+										</option>
+										<option value="2">Category 2</option>
+										<option value="3">Category 3</option>
+										<option value="4">Category 4</option>
+									</select>
+								</div>
 							</div>
 
 							<button
