@@ -1,13 +1,15 @@
 import AccountListItem from "./AccountListItem";
 
-function AccountList() {
+interface AccountListProps {
+	accounts: any;
+}
+
+function AccountList({ accounts }: AccountListProps) {
 	return (
 		<div className="list-group card p-2 container-fluid min-h-100 h-md-auto ">
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
-			<AccountListItem />
+			{accounts.map((account: any) => (
+				<AccountListItem account={account} />
+			))}
 		</div>
 	);
 }

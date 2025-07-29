@@ -15,6 +15,12 @@ import AccountDetails from "./Components/Accounts/AccountDetails";
 
 function App() {
 	// let [logged_in, change_login] = useState(false);
+	let account1 = { id: 1, name: "Account 1", balance: "Balance" };
+	let account2 = { id: 2, name: "Account 2", balance: "Balance" };
+	let account3 = { id: 3, name: "Account 3", balance: "Balance" };
+	let account4 = { id: 4, name: "Account 4", balance: "Balance" };
+	account4.name = "Account 5";
+	let account_list = [account1, account2, account3, account4];
 
 	return (
 		<>
@@ -24,10 +30,13 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path="/" element={<Dashboard />} />
-					<Route path="/accounts" element={<Accounts />} />
+					<Route
+						path="/accounts"
+						element={<Accounts account_list={account_list} />}
+					/>
 					<Route
 						path="/account-details"
-						element={<AccountDetails />}
+						element={<AccountDetails account={account1} />}
 					/>
 					<Route path="/transactions" element={<Transactions />} />
 				</Routes>
