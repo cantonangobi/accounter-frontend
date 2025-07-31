@@ -1,7 +1,11 @@
 import TransactionList from "./TransactionList";
 import TransactionSideBar from "./TransactionSideBar";
 
-function Transactions() {
+interface TransactionListProps {
+	transactions: any;
+}
+
+function Transactions({ transactions }: TransactionListProps) {
 	return (
 		<main className="container-fluid flex-fill ">
 			<div className="row gx-2 h-100">
@@ -9,7 +13,7 @@ function Transactions() {
 					<TransactionSideBar />
 				</div>
 				<div className="col-md-9 p-2 min-h-100 h-md-auto">
-					<TransactionList />
+					<TransactionList transactions={transactions} />
 				</div>
 			</div>
 		</main>

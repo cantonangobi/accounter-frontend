@@ -28,6 +28,49 @@ function App() {
 	account4.name = "Account 5";
 	let account_list = [account1, account2, account3, account4];
 
+	let transaction1 = {
+		id: 1,
+		account_name: "Account 1",
+		category: "Category 1",
+		amount: "Amount 1",
+		date: "Date 1",
+	};
+	let transaction2 = {
+		id: 2,
+		account_name: "Account 2",
+		category: "Category 2",
+		amount: "Amount 2",
+		date: "Date 1",
+	};
+	let transaction3 = {
+		id: 3,
+		account_name: "Account 1",
+		category: "Category 2",
+		amount: "Amount 3",
+		date: "Date 2",
+	};
+	let transaction4 = {
+		id: 4,
+		account_name: "Account 3",
+		category: "Category 3",
+		amount: "Amount 4",
+		date: "Date 2",
+	};
+	let transaction5 = {
+		id: 5,
+		account_name: "Account 1",
+		category: "Category 4",
+		amount: "Amount 5",
+		date: "Date 2",
+	};
+
+	let transaction_list = [
+		transaction1,
+		transaction2,
+		transaction3,
+		transaction4,
+		transaction5,
+	];
 	return (
 		<>
 			{/* <SignUp /> */}
@@ -42,9 +85,16 @@ function App() {
 					/>
 					<Route
 						path="/account-details/:id"
-						element={<AccountDetails />}
+						element={
+							<AccountDetails transactions={transaction_list} />
+						}
 					/>
-					<Route path="/transactions" element={<Transactions />} />
+					<Route
+						path="/transactions"
+						element={
+							<Transactions transactions={transaction_list} />
+						}
+					/>
 				</Routes>
 			</Router>
 		</>

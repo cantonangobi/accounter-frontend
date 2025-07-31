@@ -3,10 +3,11 @@ import ConfirmDelete from "../All/ConfirmDelete";
 import TransactionListItem from "../Transactions/TransactionListItem";
 import EditAccount from "./EditAccount";
 
-// interface AccountDetailsProps {
-// 	account: any;
-// }
-function AccountDetails() {
+interface AccountDetailsProps {
+	transactions: any;
+}
+
+function AccountDetails({ transactions }: AccountDetailsProps) {
 	const { id } = useParams<{ id: string }>();
 	return (
 		<main className="container-fluid d-flex flex-column h-100">
@@ -65,10 +66,13 @@ function AccountDetails() {
 					<h2 className="m-0">Transactions</h2>
 				</div>
 				<div className="card-body p-1">
+					{transactions.map((transaction: any) => (
+						<TransactionListItem transaction={transaction} />
+					))}
+
+					{/* <TransactionListItem />
 					<TransactionListItem />
-					<TransactionListItem />
-					<TransactionListItem />
-					<TransactionListItem />
+					<TransactionListItem /> */}
 				</div>
 			</div>
 		</main>
