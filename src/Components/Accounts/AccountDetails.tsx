@@ -1,17 +1,19 @@
+import { useParams } from "react-router";
 import ConfirmDelete from "../All/ConfirmDelete";
 import TransactionListItem from "../Transactions/TransactionListItem";
 import EditAccount from "./EditAccount";
 
-interface AccountDetailsProps {
-	account: any;
-}
-function AccountDetails({ account }: AccountDetailsProps) {
+// interface AccountDetailsProps {
+// 	account: any;
+// }
+function AccountDetails() {
+	const { id } = useParams<{ id: string }>();
 	return (
 		<main className="container-fluid d-flex flex-column h-100">
 			<div className="card">
 				<div className="card-header d-flex justify-content-between">
 					<span className="fs-2 d-flex my-auto">
-						<a href="accounts">
+						<a href="/accounts">
 							<i className="fa-solid fa-chevron-left text-black"></i>
 						</a>
 						<h1 className="m-0">Account Details</h1>
@@ -48,12 +50,12 @@ function AccountDetails({ account }: AccountDetailsProps) {
 				<div className="card-body m-1 px-4 text-start fs-4">
 					<div className="my-2">
 						<strong className="fs-3">Account Name: </strong>
-						{account.name}
+						Account {id}
 					</div>
 
 					<div className="my-2">
 						<strong className="fs-3">Balance: </strong>
-						{account.balance}
+						balance
 					</div>
 				</div>
 				{/* <div className="card-footer"></div> */}

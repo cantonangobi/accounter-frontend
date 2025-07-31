@@ -2,7 +2,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	useNavigate,
+	useParams,
+} from "react-router";
 
 import Accounts from "./Components/Accounts/Accounts";
 import Header from "./Components/All/Header";
@@ -35,8 +41,8 @@ function App() {
 						element={<Accounts account_list={account_list} />}
 					/>
 					<Route
-						path="/account-details"
-						element={<AccountDetails account={account1} />}
+						path="/account-details/:id"
+						element={<AccountDetails />}
 					/>
 					<Route path="/transactions" element={<Transactions />} />
 				</Routes>
