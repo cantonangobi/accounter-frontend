@@ -8,6 +8,7 @@ import {
 	Route,
 	useNavigate,
 	useParams,
+	Navigate,
 } from "react-router";
 
 import Accounts from "./Components/Accounts/Accounts";
@@ -17,10 +18,27 @@ import Transactions from "./Components/Transactions/Transactions";
 import Login from "./Components/Security/Login";
 import SignUp from "./Components/Security/Sign Up";
 import AccountDetails from "./Components/Accounts/AccountDetails";
+import { useState } from "react";
+
 // import SignUp from "./Components/SignUp";
 
 function App() {
-	// let [logged_in, change_login] = useState(false);
+	let [logged_in, change_login] = useState(false);
+
+	if (!logged_in) {
+		console.log("Not logged in");
+
+		return (
+			<Router>
+				<Routes>
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SignUp />} />
+					<Route path="*" element={<Navigate to={"/login"} />} />
+				</Routes>
+			</Router>
+		);
+	}
+
 	let account1 = { id: 1, name: "Account 1", balance: "Balance" };
 	let account2 = { id: 2, name: "Account 2", balance: "Balance" };
 	let account3 = { id: 3, name: "Account 3", balance: "Balance" };
