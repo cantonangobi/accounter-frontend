@@ -24,12 +24,12 @@ function CreateTransaction() {
 										type="radio"
 										className="btn-check invisible"
 										name="type"
-										id="expense"
+										id="create-expense"
 										autoComplete="off"
 									/>
 									<label
-										className="btn btn-outline-primary flex-fill"
-										htmlFor="expense"
+										className="btn btn-outline-primary flex-fill rounded-start"
+										htmlFor="create-expense"
 									>
 										Expense
 									</label>
@@ -38,12 +38,12 @@ function CreateTransaction() {
 										type="radio"
 										className="btn-check"
 										name="type"
-										id="income"
+										id="create-income"
 										autoComplete="off"
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill"
-										htmlFor="income"
+										htmlFor="create-income"
 									>
 										Income
 									</label>
@@ -51,7 +51,7 @@ function CreateTransaction() {
 
 								<div className="mb-3">
 									<label
-										htmlFor="amount"
+										htmlFor="create-amount"
 										className="form-label"
 									>
 										Amount
@@ -59,13 +59,13 @@ function CreateTransaction() {
 									<input
 										type="number"
 										className="form-control"
-										id="amount"
+										id="create-amount"
 										required
 									/>
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="select-account"
+										htmlFor="create-select-account"
 										className="form-label"
 									>
 										Account
@@ -73,12 +73,10 @@ function CreateTransaction() {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="select-account"
+										id="create-select-account"
 										required
 									>
-										<option selected value="1">
-											Account 1
-										</option>
+										<option value="1">Account 1</option>
 										<option value="2">Account 2</option>
 										<option value="3">Account 3</option>
 										<option value="4">Account 4</option>
@@ -86,7 +84,7 @@ function CreateTransaction() {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="select-account"
+										htmlFor="create-select-account"
 										className="form-label"
 									>
 										Category
@@ -94,12 +92,10 @@ function CreateTransaction() {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="select-account"
+										id="create-select-account"
 										required
 									>
-										<option selected value="1">
-											Category 1
-										</option>
+										<option value="1">Category 1</option>
 										<option value="2">Category 2</option>
 										<option value="3">Category 3</option>
 										<option value="4">Category 4</option>

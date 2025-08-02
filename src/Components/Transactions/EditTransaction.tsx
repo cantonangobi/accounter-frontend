@@ -28,7 +28,7 @@ function EditTransaction() {
 										autoComplete="off"
 									/>
 									<label
-										className="btn btn-outline-primary flex-fill"
+										className="btn btn-outline-primary flex-fill rounded-start"
 										htmlFor="expense"
 									>
 										Expense
