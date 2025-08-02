@@ -2,14 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./App.css";
 
-import {
-	BrowserRouter as Router,
-	Routes,
-	Route,
-	useNavigate,
-	useParams,
-	Navigate,
-} from "react-router";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
 
 import Accounts from "./Components/Accounts/Accounts";
 import Header from "./Components/All/Header";

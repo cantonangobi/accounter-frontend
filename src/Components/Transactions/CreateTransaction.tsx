@@ -84,7 +84,7 @@ function CreateTransaction() {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="create-select-account"
+										htmlFor="create-select-category"
 										className="form-label"
 									>
 										Category
@@ -92,7 +92,7 @@ function CreateTransaction() {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="create-select-account"
+										id="create-select-category"
 										required
 									>
 										<option value="1">Category 1</option>

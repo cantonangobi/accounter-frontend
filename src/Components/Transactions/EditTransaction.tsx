@@ -24,12 +24,12 @@ function EditTransaction() {
 										type="radio"
 										className="btn-check invisible"
 										name="type"
-										id="expense"
+										id="edit-expense"
 										autoComplete="off"
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill rounded-start"
-										htmlFor="expense"
+										htmlFor="edit-expense"
 									>
 										Expense
 									</label>
@@ -38,12 +38,12 @@ function EditTransaction() {
 										type="radio"
 										className="btn-check"
 										name="type"
-										id="income"
+										id="edit-income"
 										autoComplete="off"
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill"
-										htmlFor="income"
+										htmlFor="edit-income"
 									>
 										Income
 									</label>
@@ -51,7 +51,7 @@ function EditTransaction() {
 
 								<div className="mb-3">
 									<label
-										htmlFor="amount"
+										htmlFor="edit-amount"
 										className="form-label"
 									>
 										Amount
@@ -59,13 +59,13 @@ function EditTransaction() {
 									<input
 										type="number"
 										className="form-control"
-										id="amount"
+										id="edit-amount"
 										required
 									/>
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="select-account"
+										htmlFor="edit-select-account"
 										className="form-label"
 									>
 										Account
@@ -73,12 +73,10 @@ function EditTransaction() {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="select-account"
+										id="edit-select-account"
 										required
 									>
-										<option selected value="1">
-											Account 1
-										</option>
+										<option value="1">Account 1</option>
 										<option value="2">Account 2</option>
 										<option value="3">Account 3</option>
 										<option value="4">Account 4</option>
@@ -86,7 +84,7 @@ function EditTransaction() {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="select-account"
+										htmlFor="edit-select-category"
 										className="form-label"
 									>
 										Category
@@ -94,12 +92,10 @@ function EditTransaction() {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="select-account"
+										id="edit-select-category"
 										required
 									>
-										<option selected value="1">
-											Category 1
-										</option>
+										<option value="1">Category 1</option>
 										<option value="2">Category 2</option>
 										<option value="3">Category 3</option>
 										<option value="4">Category 4</option>

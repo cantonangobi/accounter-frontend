@@ -8,7 +8,7 @@ function AccountList({ accounts }: AccountListProps) {
 	return (
 		<div className="list-group card p-2 container-fluid min-h-100 h-md-auto ">
 			{accounts.map((account: any) => (
-				<AccountListItem account={account} />
+				<AccountListItem account={account} key={account.id} />
 			))}
 		</div>
 	);
