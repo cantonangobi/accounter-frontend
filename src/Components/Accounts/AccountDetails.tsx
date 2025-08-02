@@ -2,6 +2,8 @@ import { useParams } from "react-router";
 import ConfirmDelete from "../All/ConfirmDelete";
 import TransactionListItem from "../Transactions/TransactionListItem";
 import EditAccount from "./EditAccount";
+import BtnEdit from "../All/BtnEdit";
+import BtnDelete from "../All/BtnDelete";
 
 interface AccountDetailsProps {
 	transactions: any;
@@ -26,7 +28,7 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 						Account Details
 					</h1> */}
 					<span className="my-auto">
-						<button
+						{/* <button
 							className="btn btn-main py-1 px-2 mx-tiny"
 							type="button"
 							data-bs-toggle="modal"
@@ -34,9 +36,12 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 						>
 							<i className="fa-solid fa-pencil"></i>
 							Edit
-						</button>
+						</button> */}
+						<BtnEdit modal_target="#edit-account-modal">
+							Edit
+						</BtnEdit>
 						<EditAccount />
-						<button
+						{/* <button
 							className="btn btn-danger py-1 px-2 mx-tiny"
 							type="button"
 							data-bs-toggle="modal"
@@ -44,7 +49,10 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 						>
 							<i className="fa-solid fa-trash"></i>
 							Delete
-						</button>
+						</button> */}
+						<BtnDelete modal_target="#confirm-delete">
+							Delete
+						</BtnDelete>
 						<ConfirmDelete />
 					</span>
 				</div>

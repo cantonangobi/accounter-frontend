@@ -1,5 +1,6 @@
 import BtnDelete from "../All/BtnDelete";
 import BtnEdit from "../All/BtnEdit";
+import ConfirmDelete from "../All/ConfirmDelete";
 import EditTransaction from "./EditTransaction";
 
 interface TransactionProps {
@@ -20,16 +21,22 @@ function TransactionListItem({ transaction }: TransactionProps) {
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>
-						<button
+						{/* <button
 							className="btn btn-main py-1 px-2 mx-tiny"
 							type="button"
 							data-bs-toggle="modal"
 							data-bs-target="#edit-transaction-modal"
 						>
 							<i className="fa-solid fa-pencil"></i>
-						</button>
+						</button> */}
+						<BtnEdit modal_target="#edit-transaction-modal">
+							{null}
+						</BtnEdit>
 						<EditTransaction />
-						<BtnDelete />
+						<BtnDelete modal_target="#confirm-delete">
+							{null}
+						</BtnDelete>
+						<ConfirmDelete />
 					</span>
 				</div>
 			</div>

@@ -23,7 +23,7 @@ import { useState } from "react";
 // import SignUp from "./Components/SignUp";
 
 function App() {
-	let [logged_in, change_login] = useState(false);
+	let [logged_in, change_login] = useState(true);
 
 	if (!logged_in) {
 		console.log("Not logged in");
