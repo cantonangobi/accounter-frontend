@@ -24,7 +24,7 @@ function Login() {
 					const tokenResponse = response.data.token;
 					const auth = {
 						user: userResponse,
-						token: tokenResponse,
+						token: `Bearer ${tokenResponse}`,
 					};
 					authContext?.setAuth(auth);
 					setSessionAuth(auth);

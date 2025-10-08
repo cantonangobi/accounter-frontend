@@ -13,6 +13,8 @@ function Layout() {
 	useEffect(() => {
 		console.log("Auth testing...");
 		console.log(authContext?.auth.token);
+		// console.log("token: ")
+		// console.log
 		if (!authContext?.auth.token) {
 			navigate("/login", {
 				state: { from: location },
