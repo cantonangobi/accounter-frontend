@@ -2,54 +2,19 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 // import "./App.css";
 
-import {
-	BrowserRouter,
-	Routes,
-	Route,
-	Navigate,
-	useLocation,
-	useNavigate,
-} from "react-router";
+import { Routes, Route } from "react-router";
 
 import Accounts from "./Components/Accounts/Accounts";
-import Header from "./Components/All/Header";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Transactions from "./Components/Transactions/Transactions";
 import Login from "./Components/Security/Login";
 import SignUp from "./Components/Security/SignUp";
 import AccountDetails from "./Components/Accounts/AccountDetails";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "./Components/Security/AuthProvider";
-import axios from "axios";
 import Layout from "./Components/All/Layout";
 
 // import SignUp from "./Components/SignUp";
-const BASE_URL = "http://localhost:8080/api/v1/auth/test";
+
 function App() {
-	// let [logged_in, change_login] = useState(true);
-
-	// function authenticate() {
-	// 	change_login(true);
-	// }
-
-	// function log_out() {
-	// 	change_login(false);
-	// }
-
-	// if (!logged_in) {
-	// 	console.log("Not logged in");
-
-	// 	return (
-	// 		<BrowserRouter>
-	// 			<Routes>
-	// 				<Route path="/login" element={<Login />} />
-	// 				<Route path="/signup" element={<SignUp />} />
-	// 				<Route path="*" element={<Navigate to={"/login"} />} />
-	// 			</Routes>
-	// 		</BrowserRouter>
-	// 	);
-	// }
-
 	let account1 = { id: 1, name: "Account 1", balance: "Balance" };
 	let account2 = { id: 2, name: "Account 2", balance: "Balance" };
 	let account3 = { id: 3, name: "Account 3", balance: "Balance" };

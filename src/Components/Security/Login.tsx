@@ -1,11 +1,47 @@
-function Login() {
-    const handleSubmit = (event: any) => {
-      event.preventDefault(); // Prevents the default browser form submission behavior
+import axios from "axios";
+import { useContext, useState, type FormEvent } from "react";
+import { AuthContext, setSessionAuth } from "./AuthProvider";
+import { useNavigate, useLocation } from "react-router";
 
-      // Your custom logic goes here
-      // For example, validation, data processing, API calls
-      console.log('Form submitted!');
-    };
+const URL = "http://localhost:8080/api/v1/auth/authenticate";
+function Login() {
+	const authContext = useContext(AuthContext);
+	const navigate = useNavigate();
+	const location = useLocation();
+	// console.log("Location");
+	// console.log(location.state.from.pathname);
+	const from = location.state?.from?.pathname || "/";
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
+	const handleSubmit = (event: FormEvent) => {
+		event.preventDefault(); // Prevents the default browser form submission behavior
+		axios
+			.post(URL, { email: email, password: password })
+			.then((response) => {
+				if (response.status === 200) {
+					const userResponse = response.data.user;
+					const tokenResponse = response.data.token;
+					const auth = {
+						user: userResponse,
+						token: tokenResponse,
+					};
+					authContext?.setAuth(auth);
+					setSessionAuth(auth);
+					navigate(from, { replace: true });
+				} else {
+					console.error("Something Went Wrong. response status: ");
+					console.error(response.status);
+				}
+			})
+			.catch((error) => {
+				console.error("Something Went Wrong. Server Response: ");
+				console.error(error);
+			});
+		// Your custom logic goes here
+		// For example, validation, data processing, API calls
+		console.log("Form submitted!");
+	};
 	return (
 		<main className="container-fluid flex-fill">
 			<div className="row h-100">
@@ -13,7 +49,12 @@ function Login() {
 					<h1 className="text-white font-nova">Accounter</h1>
 				</div>
 				<div className="col-12 col-sm-6 h-100 d-flex align-items-center">
-					<form className="w-50 m-auto text-start" onSubmit={handleSubmit}>
+					<form
+						className="w-50 m-auto text-start"
+						onSubmit={(e: FormEvent) => {
+							handleSubmit(e);
+						}}
+					>
 						<h1 className="mb-3">Log In</h1>
 						<div className="mb-3">
 							<label htmlFor="email" className="form-label">
@@ -23,6 +64,9 @@ function Login() {
 								type="email"
 								className="form-control"
 								id="email"
+								onChange={(e) => {
+									setEmail(e.target.value);
+								}}
 							/>
 						</div>
 						<div className="mb-3">
@@ -33,6 +77,9 @@ function Login() {
 								type="password"
 								className="form-control"
 								id="password"
+								onChange={(e) => {
+									setPassword(e.target.value);
+								}}
 							/>
 						</div>
 						<div className="mb-3 form-check">
@@ -48,11 +95,14 @@ function Login() {
 								Keep me logged in
 							</label>
 						</div>
-						<button type="submit" className="btn btn-main form-control">
+						<button
+							type="submit"
+							className="btn btn-main form-control"
+						>
 							Submit
 						</button>
 						<hr></hr>
-						Don't have an account? <a href="#">Sign Up</a>
+						Don't have an account? <a href="/signup">Sign Up</a>
 					</form>
 				</div>
 			</div>

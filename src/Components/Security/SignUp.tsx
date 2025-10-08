@@ -51,7 +51,7 @@ function SignUp() {
 							Submit
 						</button>
 						<hr></hr>
-						Already have an account? <a href="#">Log In</a>
+						Already have an account? <a href="/login">Log In</a>
 					</form>
 				</div>
 			</div>
