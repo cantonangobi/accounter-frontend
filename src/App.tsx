@@ -18,6 +18,14 @@ import { useState } from "react";
 function App() {
 	let [logged_in, change_login] = useState(true);
 
+	function authenticate(){
+		change_login(true);
+	}
+
+	function log_out(){
+		change_login(false);
+	}
+
 	if (!logged_in) {
 		console.log("Not logged in");
 

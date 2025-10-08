@@ -1,4 +1,11 @@
 function Login() {
+    const handleSubmit = (event: any) => {
+      event.preventDefault(); // Prevents the default browser form submission behavior
+
+      // Your custom logic goes here
+      // For example, validation, data processing, API calls
+      console.log('Form submitted!');
+    };
 	return (
 		<main className="container-fluid flex-fill">
 			<div className="row h-100">
@@ -6,7 +13,7 @@ function Login() {
 					<h1 className="text-white font-nova">Accounter</h1>
 				</div>
 				<div className="col-12 col-sm-6 h-100 d-flex align-items-center">
-					<form className="w-50 m-auto text-start">
+					<form className="w-50 m-auto text-start" onSubmit={handleSubmit}>
 						<h1 className="mb-3">Log In</h1>
 						<div className="mb-3">
 							<label htmlFor="email" className="form-label">
@@ -41,7 +48,7 @@ function Login() {
 								Keep me logged in
 							</label>
 						</div>
-						<button type="submit" className="btn btn-main w-100">
+						<button type="submit" className="btn btn-main form-control">
 							Submit
 						</button>
 						<hr></hr>

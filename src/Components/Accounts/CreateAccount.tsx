@@ -42,7 +42,7 @@ function CreateAccount() {
 							</div>
 							<button
 								type="submit"
-								className="btn btn-main w-100">
+								className="btn btn-main btn-block">
 								Create Account
 							</button>
 						</form>

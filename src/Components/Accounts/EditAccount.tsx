@@ -1,4 +1,4 @@
-function EditAccount() {
+   function EditAccount() {
 	return (
 		<div className="modal fade" id="edit-account-modal" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
@@ -45,7 +45,7 @@ function EditAccount() {
 							</div>
 							<button
 								type="submit"
-								className="btn btn-main w-100"
+								className="btn btn-main btn-block"
 							>
 								Save
 							</button>

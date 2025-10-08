@@ -44,7 +44,7 @@ function SignUp() {
 								required
 							/>
 						</div>
-						<button type="submit" className="btn btn-main w-100">
+						<button type="submit" className="btn btn-main form-control">
 							Submit
 						</button>
 						<hr></hr>
