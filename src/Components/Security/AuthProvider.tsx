@@ -12,3 +12,21 @@ export interface AuthContextModel {
 }
 
 export const AuthContext = createContext<AuthContextModel | null>(null);
+
+interface AuthProviderProps {
+	children: ReactNode;
+}
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+	const [auth, setAuth] = useState<AuthModel>({
+		user: null,
+		token: "token",
+		isAuthenticated: false,
+	});
+
+	return (
+		<AuthContext.Provider value={{ auth, setAuth }}>
+			{children}
+		</AuthContext.Provider>
+	);
+};
