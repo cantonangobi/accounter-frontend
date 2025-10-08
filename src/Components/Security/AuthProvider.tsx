@@ -1,4 +1,10 @@
-import { createContext, type Dispatch, type SetStateAction } from "react";
+import {
+	createContext,
+	useState,
+	type Dispatch,
+	type ReactNode,
+	type SetStateAction,
+} from "react";
 
 export interface AuthModel {
 	user: any;
@@ -29,4 +35,12 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 			{children}
 		</AuthContext.Provider>
 	);
+};
+
+export const getSessionAuth = () => {
+	return window.localStorage.getItem("authContext");
+};
+
+export const setSessionAuth = (authContext: AuthModel) => {
+	window.localStorage.setItem("authContext", JSON.stringify(authContext));
 };
