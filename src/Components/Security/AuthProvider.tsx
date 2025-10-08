@@ -24,19 +24,20 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-	const [auth, setAuth] = useState<AuthModel>({
+	let temp = {
 		user: null,
 		token: null,
-	});
-	// setSessionAuth(null);
-	console.log("Session Auth: ");
-	console.log(getSessionAuth());
+	};
+
+	const [auth, setAuth] = useState<AuthModel>(temp);
 	useEffect(() => {
 		const sessionAuth = getSessionAuth();
 		if (sessionAuth !== null && sessionAuth !== "null") {
-			console.log("setting auth");
-			const authJSON = JSON.parse(sessionAuth) as AuthModel;
-			setAuth(authJSON);
+			const authJSON = JSON.parse(sessionAuth);
+			temp.user = authJSON.user;
+			temp.token = authJSON.token;
+
+			setAuth(temp);
 		}
 	}, []);
 
@@ -48,9 +49,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 };
 
 export const getSessionAuth = () => {
-	return window.localStorage.getItem("authContext");
+	return window.sessionStorage.getItem("authContext");
 };
 
 export const setSessionAuth = (authContext: AuthModel | null) => {
-	window.localStorage.setItem("authContext", JSON.stringify(authContext));
+	window.sessionStorage.setItem("authContext", JSON.stringify(authContext));
 };

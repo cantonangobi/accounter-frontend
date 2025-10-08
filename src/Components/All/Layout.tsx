@@ -11,10 +11,6 @@ function Layout() {
 	const location = useLocation();
 
 	useEffect(() => {
-		console.log("Auth testing...");
-		console.log(authContext?.auth.token);
-		// console.log("token: ")
-		// console.log
 		if (!authContext?.auth.token) {
 			navigate("/login", {
 				state: { from: location },
@@ -28,13 +24,7 @@ function Layout() {
 				headers: { Authorization: authContext?.auth.token },
 			})
 			.then((response) => {
-				console.log(`Server Status: ${response.status}`);
-				console.log(`data: ${response.data}`);
 				if (response.status !== 200) {
-					// 	tokenValid = true;
-					// 	console.log("Token is valid");
-					// } else {
-					// tokenValid = false;
 					navigate("/login", {
 						state: { from: location },
 						replace: true,
@@ -43,7 +33,6 @@ function Layout() {
 			})
 			.catch((error) => {
 				console.error(`Server Error: ${error}`);
-				// tokenValid = false;
 				navigate("/login", {
 					state: { from: location },
 					replace: true,

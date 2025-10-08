@@ -8,8 +8,6 @@ function Login() {
 	const authContext = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
-	// console.log("Location");
-	// console.log(location.state.from.pathname);
 	const from = location.state?.from?.pathname || "/";
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -40,7 +38,6 @@ function Login() {
 			});
 		// Your custom logic goes here
 		// For example, validation, data processing, API calls
-		console.log("Form submitted!");
 	};
 	return (
 		<main className="container-fluid flex-fill">
