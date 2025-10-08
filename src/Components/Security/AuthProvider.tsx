@@ -9,7 +9,6 @@ import {
 export interface AuthModel {
 	user: any;
 	token: string | null;
-	isAuthenticated: boolean;
 }
 
 export interface AuthContextModel {
@@ -26,8 +25,7 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
 	const [auth, setAuth] = useState<AuthModel>({
 		user: null,
-		token: "token",
-		isAuthenticated: false,
+		token: null,
 	});
 
 	return (
