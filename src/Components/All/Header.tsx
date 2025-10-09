@@ -1,21 +1,13 @@
-import { useContext } from "react";
-import { AuthContext, setSessionAuth } from "../Security/AuthProvider";
 import { useNavigate } from "react-router";
 
 function Header() {
-	const authContext = useContext(AuthContext);
-
 	const navigate = useNavigate();
 
 	const handleSignOut = () => {
-		const auth = {
-			user: null,
-			token: null,
-		};
-		authContext?.setAuth(auth);
-		setSessionAuth(auth);
+		window.sessionStorage.clear();
 		navigate("/login", { replace: true });
 	};
+
 	return (
 		<>
 			<header className="bg-main  p-1 mb-2 border-bottom sticky-top">

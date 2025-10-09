@@ -1,11 +1,11 @@
 import axios from "axios";
-import { useContext, useState, type FormEvent } from "react";
-import { AuthContext, setSessionAuth } from "./AuthProvider";
+import { useState, type FormEvent } from "react";
+// import { AuthContext, setSessionAuth } from "./AuthProvider";
 import { useNavigate, useLocation } from "react-router";
 
 const URL = "http://localhost:8080/api/v1/auth/authenticate";
 function Login() {
-	const authContext = useContext(AuthContext);
+	// const authContext = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
@@ -20,12 +20,22 @@ function Login() {
 				if (response.status === 200) {
 					const userResponse = response.data.user;
 					const tokenResponse = response.data.token;
-					const auth = {
-						user: userResponse,
-						token: `Bearer ${tokenResponse}`,
-					};
-					authContext?.setAuth(auth);
-					setSessionAuth(auth);
+
+					if (userResponse && tokenResponse) {
+						window.sessionStorage.setItem(
+							"sessionUser",
+							JSON.stringify(userResponse)
+						);
+						window.sessionStorage.setItem(
+							"sessionToken",
+							`Bearer ${tokenResponse}`
+						);
+					} else {
+						console.error(
+							"Something Went Wrong. The user or token was null "
+						);
+					}
+
 					navigate(from, { replace: true });
 				} else {
 					console.error("Something Went Wrong. response status: ");
@@ -36,8 +46,6 @@ function Login() {
 				console.error("Something Went Wrong. Server Response: ");
 				console.error(error);
 			});
-		// Your custom logic goes here
-		// For example, validation, data processing, API calls
 	};
 	return (
 		<main className="container-fluid flex-fill">

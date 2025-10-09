@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 // import "./App.css";
 
-import { Routes, Route } from "react-router";
+import { Routes, Route, BrowserRouter } from "react-router";
 
 import Accounts from "./Components/Accounts/Accounts";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -10,9 +10,7 @@ import Transactions from "./Components/Transactions/Transactions";
 import Login from "./Components/Security/Login";
 import SignUp from "./Components/Security/SignUp";
 import AccountDetails from "./Components/Accounts/AccountDetails";
-import ProtectedRoutes from "./Components/All/ProtectedRoutes";
-
-// import SignUp from "./Components/SignUp";
+import Layout from "./Components/Security/ProtectedRoutes";
 
 function App() {
 	let account1 = { id: 1, name: "Account 1", balance: "Balance" };
@@ -67,15 +65,11 @@ function App() {
 	];
 
 	return (
-		<>
-			{/* <SignUp /> */}
-			{/* <Login /> */}
-			{/* <Header /> */}
-			{/* <BrowserRouter> */}
+		<BrowserRouter>
 			<Routes>
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
-				<Route path="/" element={<ProtectedRoutes />}>
+				<Route path="/" element={<Layout />}>
 					<Route
 						path="/accounts"
 						element={<Accounts account_list={account_list} />}
@@ -95,8 +89,7 @@ function App() {
 					<Route path="/" element={<Dashboard />} />
 				</Route>
 			</Routes>
-			{/* </BrowserRouter> */}
-		</>
+		</BrowserRouter>
 	);
 }
 
