@@ -5,7 +5,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../Security/AuthProvider";
 const BASE_URL = "http://localhost:8080/api/v1/auth/test";
 
-function Layout() {
+function ProtectedRoutes() {
 	const authContext = useContext(AuthContext);
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -48,4 +48,4 @@ function Layout() {
 	);
 }
 
-export default Layout;
+export default ProtectedRoutes;

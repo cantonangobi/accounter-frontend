@@ -10,7 +10,7 @@ import Transactions from "./Components/Transactions/Transactions";
 import Login from "./Components/Security/Login";
 import SignUp from "./Components/Security/SignUp";
 import AccountDetails from "./Components/Accounts/AccountDetails";
-import Layout from "./Components/All/Layout";
+import ProtectedRoutes from "./Components/All/ProtectedRoutes";
 
 // import SignUp from "./Components/SignUp";
 
@@ -75,8 +75,7 @@ function App() {
 			<Routes>
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
-				<Route path="/" element={<Layout />}>
-					<Route path="/" element={<Dashboard />} />
+				<Route path="/" element={<ProtectedRoutes />}>
 					<Route
 						path="/accounts"
 						element={<Accounts account_list={account_list} />}
@@ -93,6 +92,7 @@ function App() {
 							<Transactions transactions={transaction_list} />
 						}
 					/>
+					<Route path="/" element={<Dashboard />} />
 				</Route>
 			</Routes>
 			{/* </BrowserRouter> */}
