@@ -16,7 +16,7 @@ function AccountListItem({ account }: AccountProps) {
 			onClick={onBtnClick}
 		>
 			<div className="row">
-				<div className="col-6 text-start">{account.name}</div>
+				<div className="col-6 text-start">{account.accountName}</div>
 				<div className="col-6 text-end">{account.balance}</div>
 			</div>
 		</button>
