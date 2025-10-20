@@ -4,11 +4,11 @@ import axios from "axios";
 
 const URL = "http://localhost:8080/api/v1/account/getall";
 
-interface AccountListProps {
-	accounts: any;
-}
+// interface AccountListProps {
+// 	accounts: any;
+// }
 
-function AccountList({ accounts }: AccountListProps) {
+function AccountList() {
 	const [accountList, setAccounts] = useState([]);
 
 	useEffect(() => {

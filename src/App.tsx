@@ -70,10 +70,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<SignUp />} />
 				<Route path="/" element={<ProtectedRoutes />}>
-					<Route
-						path="/accounts"
-						element={<Accounts account_list={account_list} />}
-					/>
+					<Route path="/accounts" element={<Accounts />} />
 					<Route
 						path="/account-details/:id"
 						element={
