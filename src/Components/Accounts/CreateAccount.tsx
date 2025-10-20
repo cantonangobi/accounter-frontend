@@ -1,11 +1,13 @@
 import { useState, type FormEvent } from "react";
 import { getSessionToken } from "../Security/SessionManagement";
 import Axios from "../Api/Axios";
+import { useNavigate } from "react-router";
 
 const CREATE_ACCOUNT_URL = "/api/v1/account/create";
 function CreateAccount() {
 	const [name, setName] = useState("");
 	const [balance, setBalance] = useState("");
+	const navigate = useNavigate();
 
 	console.log("name: ", name);
 	console.log("balance: ", balance);
@@ -15,7 +17,27 @@ function CreateAccount() {
 
 		const sessionToken = getSessionToken();
 
-		Axios.post(CREATE_ACCOUNT_URL, { headers: "" });
+		Axios.post(
+			CREATE_ACCOUNT_URL,
+			{ name: name, balance: balance },
+			{ headers: { Authorization: sessionToken } }
+		)
+			.then((response) => {
+				if (response.status === 200) {
+					console.log("Success!");
+					// const modal = document.getElementById(
+					// 	"create-account-modal"
+					// );
+					// modal?.setAttribute("class", "modal fade");
+					const modalBackdrop =
+						document.getElementsByClassName("modal-backdrop");
+					modalBackdrop.item(0)?.remove();
+					navigate(`/account-details/${response.data.id}`);
+				}
+			})
+			.catch((error) => {
+				console.error("Something went wrong: ", error);
+			});
 	};
 
 	return (
