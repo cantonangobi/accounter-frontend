@@ -1,4 +1,8 @@
-function ConfirmDelete() {
+interface DeleteProps {
+	handleDelete: () => void;
+}
+
+function ConfirmDelete({ handleDelete }: DeleteProps) {
 	return (
 		<div className="modal fade" id="confirm-delete" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
@@ -26,7 +30,11 @@ function ConfirmDelete() {
 						>
 							Cancel
 						</button>
-						<button type="button" className="btn btn-danger">
+						<button
+							type="button"
+							className="btn btn-danger"
+							onClick={handleDelete}
+						>
 							Delete
 						</button>
 					</div>

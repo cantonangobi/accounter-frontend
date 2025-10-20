@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import ConfirmDelete from "../All/ConfirmDelete";
 import TransactionListItem from "../Transactions/TransactionListItem";
 import EditAccount from "./EditAccount";
@@ -16,10 +16,11 @@ interface AccountDetailsProps {
 
 function AccountDetails({ transactions }: AccountDetailsProps) {
 	const { id } = useParams<{ id: string }>();
+	const GET_ACCOUNT_URL = `/api/v1/account/get/${id}`;
 	const [account, setAccount] = useState<any>({});
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		const GET_ACCOUNT_URL = `/api/v1/account/get/${id}`;
 		// const url = `${GET_ACCOUNT_URL}${id}`;
 		const sessionToken = getSessionToken();
 		console.log("session token:", sessionToken);
@@ -41,6 +42,30 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 				console.error(error);
 			});
 	}, []);
+
+	function handleDelete() {
+		const DELETE_ACCOUNT_URL = `/api/v1/account/delete/${id}`;
+		const sessionToken = getSessionToken();
+		console.log("session token:", sessionToken);
+
+		Axios.delete(DELETE_ACCOUNT_URL, {
+			headers: { Authorization: sessionToken },
+		})
+			.then((response) => {
+				if (response.status === 200) {
+					console.log("Success!");
+					// const modal = document.getElementById("confirm-delete");
+					// modal?.setAttribute("class", "modal fade");
+					const modalBackdrop =
+						document.getElementsByClassName("modal-backdrop");
+					modalBackdrop.item(0)?.remove();
+					navigate("/accounts");
+				}
+			})
+			.catch((error) => {
+				console.error("Something went wrong: ", error);
+			});
+	}
 
 	return (
 		<main className="container-fluid d-flex flex-column h-100">
@@ -84,7 +109,7 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 						<BtnDelete modal_target="#confirm-delete">
 							Delete
 						</BtnDelete>
-						<ConfirmDelete />
+						<ConfirmDelete handleDelete={handleDelete} />
 					</span>
 				</div>
 				<div className="card-body m-1 px-4 text-start fs-4">
