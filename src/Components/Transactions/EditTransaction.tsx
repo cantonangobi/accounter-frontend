@@ -1,4 +1,58 @@
-function EditTransaction() {
+import Axios from "../Api/Axios";
+import { useState, type FormEvent } from "react";
+import { getSessionToken } from "../Security/SessionManagement";
+
+interface EditTransactionProps {
+	transaction: any;
+}
+
+function EditTransaction({ transaction }: EditTransactionProps) {
+	const UPDATE_TXN_URL = `/api/v1/transaction/update/${transaction.id}`;
+	const [accountName, setAccountName] = useState(transaction.accountName);
+	const [category, setCategory] = useState(transaction.category);
+	const [amount, setAmount] = useState(transaction.amount);
+	const [date, setDate] = useState(transaction.date);
+
+	// const navigate = useNavigate();
+
+	console.log("account: ", accountName);
+	console.log("category: ", category);
+	console.log("amount: ", amount);
+	console.log("date: ", date);
+
+	const handleUpdateTransaction = (e: FormEvent) => {
+		e.preventDefault();
+
+		const sessionToken = getSessionToken();
+
+		Axios.post(
+			UPDATE_TXN_URL,
+			{
+				accountName: accountName,
+				category: category,
+				amount: amount,
+				date: date,
+			},
+			{ headers: { Authorization: sessionToken } }
+		)
+			.then((response) => {
+				if (response.status === 200) {
+					console.log("Success!");
+					const modal = document.getElementById(
+						"update-transaction-modal"
+					);
+					modal?.setAttribute("class", "modal fade");
+					const modalBackdrop =
+						document.getElementsByClassName("modal-backdrop");
+					modalBackdrop.item(0)?.remove();
+					// navigate(`/account-details/${response.data.id}`);
+					window.location.reload();
+				}
+			})
+			.catch((error) => {
+				console.error("Something went wrong: ", error);
+			});
+	};
 	return (
 		<div className="modal fade" id="edit-transaction-modal" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
@@ -17,7 +71,10 @@ function EditTransaction() {
 						></button>
 					</div>
 					<div className="modal-body">
-						<form className="text-start">
+						<form
+							className="text-start"
+							onSubmit={handleUpdateTransaction}
+						>
 							<div className="mb-3">
 								<div className="input-group d-flex mb-3 w-100">
 									<input
@@ -60,6 +117,10 @@ function EditTransaction() {
 										type="number"
 										className="form-control"
 										id="edit-amount"
+										defaultValue={transaction.amount}
+										onChange={(e) => {
+											setAmount(e.target.value);
+										}}
 										required
 									/>
 								</div>
@@ -74,12 +135,23 @@ function EditTransaction() {
 										className="form-select"
 										aria-label="Default select example"
 										id="edit-select-account"
+										defaultValue={transaction.accountName}
+										onChange={(e) => {
+											setAccountName(e.target.value);
+										}}
 										required
 									>
-										<option value="1">Account 1</option>
-										<option value="2">Account 2</option>
-										<option value="3">Account 3</option>
-										<option value="4">Account 4</option>
+										<option value="" disabled selected>
+											- Select Account -
+										</option>
+										<option value="Cash">Cash</option>
+										<option value="Mpesa">Mpesa</option>
+										<option value="Current Account">
+											Current Account
+										</option>
+										<option value="Savings Account">
+											Savings Account
+										</option>
 									</select>
 								</div>
 								<div className="mb-3">
@@ -93,13 +165,41 @@ function EditTransaction() {
 										className="form-select"
 										aria-label="Default select example"
 										id="edit-select-category"
+										defaultValue={transaction.category}
+										onChange={(e) => {
+											setCategory(e.target.value);
+										}}
 										required
 									>
-										<option value="1">Category 1</option>
-										<option value="2">Category 2</option>
-										<option value="3">Category 3</option>
-										<option value="4">Category 4</option>
+										<option value="" disabled selected>
+											- Select Category -
+										</option>
+										<option value="Food">Food</option>
+										<option value="Transport">
+											Transport
+										</option>
+										<option value="Fun">Fun</option>
+										<option value="Rent">Rent</option>
 									</select>
+								</div>
+								<div className="mb-3">
+									<label
+										htmlFor="edit-date"
+										className="form-label"
+									>
+										Date
+									</label>
+									<input
+										type="date"
+										className="form-control"
+										id="edit-date"
+										defaultValue={transaction.date}
+										// placeholder={formattedDate}
+										onChange={(e) => {
+											setDate(e.target.value);
+										}}
+										required
+									/>
 								</div>
 							</div>
 

@@ -1,4 +1,66 @@
+import { useState, type FormEvent } from "react";
+import { getSessionToken } from "../Security/SessionManagement";
+import Axios from "../Api/Axios";
+
+const CREATE_TXN_URL = "/api/v1/transaction/create";
+
 function CreateTransaction() {
+	const getCurrentDate = () => {
+		const today = new Date();
+		const year = today.getFullYear();
+		const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+		const day = String(today.getDate()).padStart(2, "0");
+		const formattedDate = `${year}-${month}-${day}`;
+		return formattedDate;
+	};
+
+	const [accountName, setAccountName] = useState("");
+	const [category, setCategory] = useState("");
+	const [amount, setAmount] = useState("0");
+	const currentDate = getCurrentDate();
+	const [date, setDate] = useState(currentDate);
+
+	// const navigate = useNavigate();
+
+	console.log("account: ", accountName);
+	console.log("category: ", category);
+	console.log("amount: ", amount);
+	console.log("date: ", date);
+
+	const handleCreateTransaction = (e: FormEvent) => {
+		e.preventDefault();
+
+		const sessionToken = getSessionToken();
+
+		Axios.post(
+			CREATE_TXN_URL,
+			{
+				accountName: accountName,
+				category: category,
+				amount: amount,
+				date: date,
+			},
+			{ headers: { Authorization: sessionToken } }
+		)
+			.then((response) => {
+				if (response.status === 201) {
+					console.log("Success!");
+					const modal = document.getElementById(
+						"create-transaction-modal"
+					);
+					modal?.setAttribute("class", "modal fade");
+					const modalBackdrop =
+						document.getElementsByClassName("modal-backdrop");
+					modalBackdrop.item(0)?.remove();
+					// navigate(`/account-details/${response.data.id}`);
+					window.location.reload();
+				}
+			})
+			.catch((error) => {
+				console.error("Something went wrong: ", error);
+			});
+	};
+
 	return (
 		<div className="modal fade" id="create-transaction-modal" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
@@ -17,7 +79,10 @@ function CreateTransaction() {
 						></button>
 					</div>
 					<div className="modal-body">
-						<form className="text-start">
+						<form
+							className="text-start"
+							onSubmit={handleCreateTransaction}
+						>
 							<div className="mb-3">
 								<div className="input-group d-flex mb-3 w-100">
 									<input
@@ -60,6 +125,9 @@ function CreateTransaction() {
 										type="number"
 										className="form-control"
 										id="create-amount"
+										onChange={(e) => {
+											setAmount(e.target.value);
+										}}
 										required
 									/>
 								</div>
@@ -74,12 +142,23 @@ function CreateTransaction() {
 										className="form-select"
 										aria-label="Default select example"
 										id="create-select-account"
+										onChange={(e) => {
+											setAccountName(e.target.value);
+										}}
 										required
+										defaultValue={""}
 									>
-										<option value="1">Account 1</option>
-										<option value="2">Account 2</option>
-										<option value="3">Account 3</option>
-										<option value="4">Account 4</option>
+										<option value="" disabled selected>
+											- Select Account -
+										</option>
+										<option value="Cash">Cash</option>
+										<option value="Mpesa">Mpesa</option>
+										<option value="Current Account">
+											Current Account
+										</option>
+										<option value="Savings Account">
+											Savings Account
+										</option>
 									</select>
 								</div>
 								<div className="mb-3">
@@ -93,13 +172,40 @@ function CreateTransaction() {
 										className="form-select"
 										aria-label="Default select example"
 										id="create-select-category"
+										onChange={(e) => {
+											setCategory(e.target.value);
+										}}
 										required
 									>
-										<option value="1">Category 1</option>
-										<option value="2">Category 2</option>
-										<option value="3">Category 3</option>
-										<option value="4">Category 4</option>
+										<option value="" disabled selected>
+											- Select Category -
+										</option>
+										<option value="Food">Food</option>
+										<option value="Transport">
+											Transport
+										</option>
+										<option value="Fun">Fun</option>
+										<option value="Rent">Rent</option>
 									</select>
+								</div>
+								<div className="mb-3">
+									<label
+										htmlFor="create-date"
+										className="form-label"
+									>
+										Date
+									</label>
+									<input
+										type="date"
+										className="form-control"
+										id="create-date"
+										defaultValue={currentDate}
+										// placeholder={formattedDate}
+										onChange={(e) => {
+											setDate(e.target.value);
+										}}
+										required
+									/>
 								</div>
 							</div>
 

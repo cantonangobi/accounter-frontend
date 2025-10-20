@@ -11,7 +11,7 @@ function AccountListItem({ account }: AccountProps) {
 	}
 	return (
 		<button
-			className="list-item card p-4 m-1 btn"
+			className="list-item card p-4 m-1"
 			type="button"
 			onClick={onBtnClick}
 		>

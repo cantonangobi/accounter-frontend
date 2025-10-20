@@ -5,10 +5,8 @@ import EditAccount from "./EditAccount";
 import BtnEdit from "../All/BtnEdit";
 import BtnDelete from "../All/BtnDelete";
 import { useEffect, useState } from "react";
-// import axios from "axios";
 import { getSessionToken } from "../Security/SessionManagement";
 import Axios from "../Api/Axios";
-// import { getRequest } from "../Api/Axios";
 
 interface AccountDetailsProps {
 	transactions: any;
@@ -20,6 +18,9 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 	const [account, setAccount] = useState<any>({});
 	const navigate = useNavigate();
 
+	useEffect(() => {
+		console.log("account: ", account);
+	}, [account]);
 	useEffect(() => {
 		// const url = `${GET_ACCOUNT_URL}${id}`;
 		const sessionToken = getSessionToken();
@@ -96,7 +97,7 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 						<BtnEdit modal_target="#edit-account-modal">
 							Edit
 						</BtnEdit>
-						<EditAccount />
+						<EditAccount account={account} />
 						{/* <button
 							className="btn btn-danger py-1 px-2 mx-tiny"
 							type="button"
