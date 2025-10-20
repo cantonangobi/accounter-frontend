@@ -1,9 +1,11 @@
-import axios from "axios";
+// import axios from "axios";
 import { useState, type FormEvent } from "react";
 // import { AuthContext, setSessionAuth } from "./AuthProvider";
 import { useNavigate, useLocation } from "react-router";
+import { setSessionToken, setSessionUser } from "./SessionManagement";
+import Axios from "../Api/Axios";
 
-const URL = "http://localhost:8080/api/v1/auth/authenticate";
+const URL = "/api/v1/auth/authenticate";
 function Login() {
 	// const authContext = useContext(AuthContext);
 	const navigate = useNavigate();
@@ -14,22 +16,15 @@ function Login() {
 
 	const handleSubmit = (event: FormEvent) => {
 		event.preventDefault(); // Prevents the default browser form submission behavior
-		axios
-			.post(URL, { email: email, password: password })
+		Axios.post(URL, { email: email, password: password })
 			.then((response) => {
 				if (response.status === 200) {
 					const userResponse = response.data.user;
 					const tokenResponse = response.data.token;
 
 					if (userResponse && tokenResponse) {
-						window.sessionStorage.setItem(
-							"sessionUser",
-							JSON.stringify(userResponse)
-						);
-						window.sessionStorage.setItem(
-							"sessionToken",
-							`Bearer ${tokenResponse}`
-						);
+						setSessionUser(userResponse);
+						setSessionToken(tokenResponse);
 					} else {
 						console.error(
 							"Something Went Wrong. The user or token was null "

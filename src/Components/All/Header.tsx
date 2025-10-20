@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router";
+import { resetSession } from "../Security/SessionManagement";
 
 function Header() {
 	const navigate = useNavigate();
 
 	const handleSignOut = () => {
-		window.sessionStorage.clear();
+		resetSession();
 		navigate("/login", { replace: true });
 	};
 

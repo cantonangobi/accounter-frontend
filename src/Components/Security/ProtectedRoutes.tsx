@@ -1,21 +1,26 @@
 import { Outlet, useLocation, useNavigate } from "react-router";
 import Header from "../All/Header";
-import axios from "axios";
+// import axios from "axios";
 import { useEffect } from "react";
-const URL = "http://localhost:8080/api/v1/auth/test";
+import {
+	getSessionToken,
+	getSessionUser,
+	sessionExists,
+} from "./SessionManagement";
+import Axios from "../Api/Axios";
+const CONNECTION_TEST_URL = "/api/v1/auth/test";
 
 function ProtectedRoutes() {
 	const navigate = useNavigate();
 	const location = useLocation();
 
 	useEffect(() => {
-		const sessionUser = window.sessionStorage.getItem("sessionUser");
-		const sessionToken = window.sessionStorage.getItem("sessionToken");
-		if (sessionUser && sessionToken) {
-			axios
-				.get(URL, {
-					headers: { Authorization: sessionToken },
-				})
+		// const sessionUser = getSessionUser();
+		const sessionToken = getSessionToken();
+		if (sessionExists()) {
+			Axios.get(CONNECTION_TEST_URL, {
+				headers: { Authorization: sessionToken },
+			})
 				.then((response) => {
 					if (response.status !== 200) {
 						console.log(
@@ -29,7 +34,9 @@ function ProtectedRoutes() {
 				})
 				.catch((error) => {
 					console.error(
-						`Server Error: ${error}, redirecting to login`
+						"Server Error:",
+						error,
+						"redirecting to login"
 					);
 					navigate("/login", {
 						state: { from: location },

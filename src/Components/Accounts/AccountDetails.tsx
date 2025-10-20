@@ -5,9 +5,11 @@ import EditAccount from "./EditAccount";
 import BtnEdit from "../All/BtnEdit";
 import BtnDelete from "../All/BtnDelete";
 import { useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import { getSessionToken } from "../Security/SessionManagement";
+import Axios from "../Api/Axios";
+// import { getRequest } from "../Api/Axios";
 
-const ACCOUNT_DETAILS_URL = "http://localhost:8080/api/v1/account/get/";
 interface AccountDetailsProps {
 	transactions: any;
 }
@@ -17,15 +19,22 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 	const [account, setAccount] = useState<any>({});
 
 	useEffect(() => {
-		const sessionToken = window.sessionStorage.getItem("sessionToken");
-		console.log(`session token: ${sessionToken}`);
-		axios
-			.get(`${ACCOUNT_DETAILS_URL}${id}`, {
-				headers: { Authorization: sessionToken },
-			})
+		const GET_ACCOUNT_URL = `/api/v1/account/get/${id}`;
+		// const url = `${GET_ACCOUNT_URL}${id}`;
+		const sessionToken = getSessionToken();
+		console.log("session token:", sessionToken);
+
+		// const response = getRequest(url, { Authorization: sessionToken });
+		// console.log("Response", response);
+		// setAccount(response);
+		Axios.get(GET_ACCOUNT_URL, {
+			headers: { Authorization: sessionToken },
+		})
 			.then((response) => {
 				if (response.status === 200) {
 					setAccount(response.data);
+				} else {
+					console.log("Response Status:", response.status);
 				}
 			})
 			.catch((error) => {
@@ -97,7 +106,10 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 				</div>
 				<div className="card-body p-1">
 					{transactions.map((transaction: any) => (
-						<TransactionListItem transaction={transaction} />
+						<TransactionListItem
+							key={transaction.id}
+							transaction={transaction}
+						/>
 					))}
 
 					{/* <TransactionListItem />

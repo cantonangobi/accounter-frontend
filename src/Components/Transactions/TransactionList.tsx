@@ -1,13 +1,13 @@
 import TransactionListItem from "./TransactionListItem";
 
 interface TransactionListProps {
-	transactions: any;
+	transaction_list: any;
 }
 
-function TransactionList({ transactions }: TransactionListProps) {
+function TransactionList({ transaction_list }: TransactionListProps) {
 	return (
 		<div className="card p-2 container-fluid min-h-100 h-md-auto ">
-			{transactions.map((transaction: any) => (
+			{transaction_list.map((transaction: any) => (
 				<TransactionListItem
 					transaction={transaction}
 					key={transaction.id}

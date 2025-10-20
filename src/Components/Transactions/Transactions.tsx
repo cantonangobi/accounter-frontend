@@ -13,7 +13,7 @@ function Transactions({ transactions }: TransactionListProps) {
 					<TransactionSideBar />
 				</div>
 				<div className="col-md-9 p-2 min-h-100 h-md-auto">
-					<TransactionList transactions={transactions} />
+					<TransactionList transaction_list={transactions} />
 				</div>
 			</div>
 		</main>

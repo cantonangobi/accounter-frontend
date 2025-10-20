@@ -17,3 +17,15 @@ export function getSessionToken() {
 export function resetSession() {
 	window.sessionStorage.clear();
 }
+
+export function sessionExists() {
+	if (
+		getSessionUser() !== null &&
+		getSessionUser() !== "null" &&
+		getSessionToken() !== null &&
+		getSessionToken() !== "null"
+	) {
+		return true;
+	}
+	return false;
+}

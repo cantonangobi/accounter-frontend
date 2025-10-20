@@ -1,4 +1,23 @@
+import { useState, type FormEvent } from "react";
+import { getSessionToken } from "../Security/SessionManagement";
+import Axios from "../Api/Axios";
+
+const CREATE_ACCOUNT_URL = "/api/v1/account/create";
 function CreateAccount() {
+	const [name, setName] = useState("");
+	const [balance, setBalance] = useState("");
+
+	console.log("name: ", name);
+	console.log("balance: ", balance);
+
+	const handleCreateAccount = (e: FormEvent) => {
+		e.preventDefault();
+
+		const sessionToken = getSessionToken();
+
+		Axios.post(CREATE_ACCOUNT_URL, { headers: "" });
+	};
+
 	return (
 		<div className="modal fade" id="create-account-modal" tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
@@ -6,26 +25,33 @@ function CreateAccount() {
 					<div className="modal-header border-0">
 						<h1
 							className="modal-title fs-3"
-							id="create-account-modal-label">
+							id="create-account-modal-label"
+						>
 							Create Account
 						</h1>
 						<button
 							type="button"
 							className="btn-close"
-							data-bs-dismiss="modal"></button>
+							data-bs-dismiss="modal"
+						></button>
 					</div>
 					<div className="modal-body">
-						<form className="text-start">
+						<form
+							className="text-start"
+							onSubmit={(e) => handleCreateAccount(e)}
+						>
 							<div className="mb-3">
 								<label
 									htmlFor="account-name"
-									className="form-label">
+									className="form-label"
+								>
 									Account Name
 								</label>
 								<input
 									type="text"
 									className="form-control"
 									id="account-name"
+									onChange={(e) => setName(e.target.value)}
 									required
 								/>
 							</div>
@@ -37,12 +63,16 @@ function CreateAccount() {
 									type="number"
 									className="form-control"
 									id="amount"
+									onChange={(e) => {
+										setBalance(e.target.value);
+									}}
 									required
 								/>
 							</div>
 							<button
 								type="submit"
-								className="btn btn-main btn-block">
+								className="btn btn-main btn-block"
+							>
 								Create Account
 							</button>
 						</form>
