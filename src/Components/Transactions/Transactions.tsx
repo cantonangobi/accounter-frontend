@@ -1,10 +1,6 @@
 import TransactionList from "./TransactionList";
 import TransactionSideBar from "./TransactionSideBar";
 
-// interface TransactionListProps {
-// 	transactions: any;
-// }
-
 function Transactions() {
 	return (
 		<main className="container-fluid flex-fill ">
