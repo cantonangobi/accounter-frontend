@@ -8,14 +8,16 @@ import { useEffect, useState } from "react";
 import { getSessionToken } from "../Security/SessionManagement";
 import Axios from "../Api/Axios";
 
-interface AccountDetailsProps {
-	transactions: any;
-}
+// interface AccountDetailsProps {
+// 	transactions: any;
+// }
 
-function AccountDetails({ transactions }: AccountDetailsProps) {
+function AccountDetails() {
 	const { id } = useParams<{ id: string }>();
 	const GET_ACCOUNT_URL = `/api/v1/account/get/${id}`;
+	const GET_TXNS_URL = `/api/v1/transaction/getbyaccount/${id}`;
 	const [account, setAccount] = useState<any>({});
+	const [transactions, setTransactions] = useState<any>([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -37,6 +39,22 @@ function AccountDetails({ transactions }: AccountDetailsProps) {
 					setAccount(response.data);
 				} else {
 					console.log("Response Status:", response.status);
+				}
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+
+		Axios.get(GET_TXNS_URL, {
+			headers: { Authorization: sessionToken },
+		})
+			.then((response) => {
+				if (response.status === 200) {
+					console.log(
+						"transaction/getall response data: ",
+						response.data
+					);
+					setTransactions(response.data);
 				}
 			})
 			.catch((error) => {
