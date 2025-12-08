@@ -180,6 +180,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										</option>
 										<option value="Fun">Fun</option>
 										<option value="Rent">Rent</option>
+										<option value="Income">Income</option>
 									</select>
 								</div>
 								<div className="mb-3">

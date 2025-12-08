@@ -17,11 +17,13 @@ function CreateTransaction() {
 	const [accountName, setAccountName] = useState("");
 	const [category, setCategory] = useState("");
 	const [amount, setAmount] = useState("0");
+	const [type, setType] = useState("expense");
 	const currentDate = getCurrentDate();
 	const [date, setDate] = useState(currentDate);
 
 	// const navigate = useNavigate();
 
+	console.log("type: ", type);
 	console.log("account: ", accountName);
 	console.log("category: ", category);
 	console.log("amount: ", amount);
@@ -30,6 +32,11 @@ function CreateTransaction() {
 	const handleCreateTransaction = (e: FormEvent) => {
 		e.preventDefault();
 
+		var final_amount = amount;
+		if (type === "expense") {
+			final_amount = `-${amount}`;
+		}
+
 		const sessionToken = getSessionToken();
 
 		Axios.post(
@@ -37,7 +44,7 @@ function CreateTransaction() {
 			{
 				accountName: accountName,
 				category: category,
-				amount: amount,
+				amount: final_amount,
 				date: date,
 			},
 			{ headers: { Authorization: sessionToken } }
@@ -90,7 +97,11 @@ function CreateTransaction() {
 										className="btn-check invisible"
 										name="type"
 										id="create-expense"
+										value="expense"
 										autoComplete="off"
+										onChange={(e) => {
+											setType(e.target.value);
+										}}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill rounded-start"
@@ -104,7 +115,11 @@ function CreateTransaction() {
 										className="btn-check"
 										name="type"
 										id="create-income"
+										value="income"
 										autoComplete="off"
+										onChange={(e) => {
+											setType(e.target.value);
+										}}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill"
@@ -186,6 +201,7 @@ function CreateTransaction() {
 										</option>
 										<option value="Fun">Fun</option>
 										<option value="Rent">Rent</option>
+										<option value="Income">Income</option>
 									</select>
 								</div>
 								<div className="mb-3">
