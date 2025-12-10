@@ -1,10 +1,11 @@
 interface DeleteProps {
 	handleDelete: () => void;
+	modalId: string;
 }
 
-function ConfirmDelete({ handleDelete }: DeleteProps) {
+function ConfirmDelete({ modalId, handleDelete }: DeleteProps) {
 	return (
-		<div className="modal fade" id="confirm-delete" tabIndex={-1}>
+		<div className="modal fade" id={modalId} tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
 				<div className="modal-content">
 					<div className="modal-header border-0">

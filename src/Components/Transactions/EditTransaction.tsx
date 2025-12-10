@@ -8,6 +8,12 @@ interface EditTransactionProps {
 
 function EditTransaction({ transaction }: EditTransactionProps) {
 	const UPDATE_TXN_URL = `/api/v1/transaction/update/${transaction.id}`;
+	const MODAL_ID = `edit-transaction-modal-${transaction.id}`;
+	// var type = "expense";
+	// if (transaction.amount > 0) {
+	// 	type = "income";
+	// }
+	console.log("transaction amount: ", transaction.amount);
 	const [accountName, setAccountName] = useState(transaction.accountName);
 	const [category, setCategory] = useState(transaction.category);
 	const [amount, setAmount] = useState(transaction.amount);
@@ -38,9 +44,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 			.then((response) => {
 				if (response.status === 200) {
 					console.log("Success!");
-					const modal = document.getElementById(
-						"update-transaction-modal"
-					);
+					const modal = document.getElementById(MODAL_ID);
 					modal?.setAttribute("class", "modal fade");
 					const modalBackdrop =
 						document.getElementsByClassName("modal-backdrop");
@@ -54,13 +58,13 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 			});
 	};
 	return (
-		<div className="modal fade" id="edit-transaction-modal" tabIndex={-1}>
+		<div className="modal fade" id={MODAL_ID} tabIndex={-1}>
 			<div className="modal-dialog modal-dialog-centered">
 				<div className="modal-content">
 					<div className="modal-header border-0">
 						<h1
 							className="modal-title fs-3"
-							id="edit-transaction-modal-label"
+							// id="edit-transaction-modal-label"
 						>
 							Edit Transaction
 						</h1>
@@ -83,6 +87,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										name="type"
 										id="edit-expense"
 										autoComplete="off"
+										defaultChecked={transaction.amount < 0}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill rounded-start"
@@ -97,6 +102,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										name="type"
 										id="edit-income"
 										autoComplete="off"
+										defaultChecked={transaction.amount > 0}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill"
@@ -141,7 +147,11 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										}}
 										required
 									>
-										<option value="" disabled selected>
+										<option
+											value=""
+											disabled
+											defaultChecked
+										>
 											- Select Account -
 										</option>
 										<option value="Cash">Cash</option>
@@ -171,7 +181,11 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										}}
 										required
 									>
-										<option value="" disabled selected>
+										<option
+											value=""
+											disabled
+											defaultChecked
+										>
 											- Select Category -
 										</option>
 										<option value="Food">Food</option>

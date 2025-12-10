@@ -1,18 +1,18 @@
 import type { ReactNode } from "react";
-import ConfirmDelete from "./ConfirmDelete";
 
 interface BtnDeleteProps {
-	modal_target: string;
+	modalId: string;
 	children: ReactNode;
 }
-function BtnDelete({ modal_target, children }: BtnDeleteProps) {
+function BtnDelete({ modalId, children }: BtnDeleteProps) {
+	const MODAL_TARGET = `#${modalId}`;
 	return (
 		<>
 			<button
 				className="btn btn-danger py-1 px-2 mx-tiny"
 				type="button"
 				data-bs-toggle="modal"
-				data-bs-target={modal_target}
+				data-bs-target={MODAL_TARGET}
 			>
 				<i className="fa-solid fa-trash"></i>
 				{children}

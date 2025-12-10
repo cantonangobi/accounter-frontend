@@ -125,10 +125,11 @@ function AccountDetails() {
 							<i className="fa-solid fa-trash"></i>
 							Delete
 						</button> */}
-						<BtnDelete modal_target="#confirm-delete">
-							Delete
-						</BtnDelete>
-						<ConfirmDelete handleDelete={handleDelete} />
+						<BtnDelete modalId="confirm-delete">Delete</BtnDelete>
+						<ConfirmDelete
+							modalId="confirm-delete"
+							handleDelete={handleDelete}
+						/>
 					</span>
 				</div>
 				<div className="card-body m-1 px-4 text-start fs-4">

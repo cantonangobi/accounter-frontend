@@ -17,7 +17,7 @@ function CreateTransaction() {
 	const [accountName, setAccountName] = useState("");
 	const [category, setCategory] = useState("");
 	const [amount, setAmount] = useState("0");
-	const [type, setType] = useState("expense");
+	const [type, setType] = useState("EXPENSE");
 	const currentDate = getCurrentDate();
 	const [date, setDate] = useState(currentDate);
 
@@ -32,10 +32,10 @@ function CreateTransaction() {
 	const handleCreateTransaction = (e: FormEvent) => {
 		e.preventDefault();
 
-		var final_amount = amount;
-		if (type === "expense") {
-			final_amount = `-${amount}`;
-		}
+		// var final_amount = amount;
+		// if (type === "expense") {
+		// 	final_amount = `-${amount}`;
+		// }
 
 		const sessionToken = getSessionToken();
 
@@ -43,8 +43,9 @@ function CreateTransaction() {
 			CREATE_TXN_URL,
 			{
 				accountName: accountName,
+				type: type,
 				category: category,
-				amount: final_amount,
+				amount: amount,
 				date: date,
 			},
 			{ headers: { Authorization: sessionToken } }
@@ -97,8 +98,9 @@ function CreateTransaction() {
 										className="btn-check invisible"
 										name="type"
 										id="create-expense"
-										value="expense"
+										value="EXPENSE"
 										autoComplete="off"
+										defaultChecked={true}
 										onChange={(e) => {
 											setType(e.target.value);
 										}}
@@ -115,7 +117,7 @@ function CreateTransaction() {
 										className="btn-check"
 										name="type"
 										id="create-income"
-										value="income"
+										value="INCOME"
 										autoComplete="off"
 										onChange={(e) => {
 											setType(e.target.value);
@@ -161,9 +163,13 @@ function CreateTransaction() {
 											setAccountName(e.target.value);
 										}}
 										required
-										defaultValue={""}
+										// defaultValue={""}
 									>
-										<option value="" disabled selected>
+										<option
+											value=""
+											disabled
+											defaultChecked
+										>
 											- Select Account -
 										</option>
 										<option value="Cash">Cash</option>
@@ -192,7 +198,11 @@ function CreateTransaction() {
 										}}
 										required
 									>
-										<option value="" disabled selected>
+										<option
+											value=""
+											disabled
+											defaultChecked
+										>
 											- Select Category -
 										</option>
 										<option value="Food">Food</option>

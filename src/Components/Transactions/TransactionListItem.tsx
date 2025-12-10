@@ -10,9 +10,14 @@ import EditTransaction from "./EditTransaction";
 interface TransactionProps {
 	transaction: any;
 }
+
 function TransactionListItem({ transaction }: TransactionProps) {
+	const EDIT_MODAL_ID = `edit-transaction-modal-${transaction.id}`;
+	const DELETE_MODAL_ID = `confirm-delete-${transaction.id}`;
+
 	function handleDelete() {
 		const DELETE_TXN_URL = `/api/v1/transaction/delete/${transaction.id}`;
+
 		const sessionToken = getSessionToken();
 		console.log("session token:", sessionToken);
 
@@ -22,7 +27,7 @@ function TransactionListItem({ transaction }: TransactionProps) {
 			.then((response) => {
 				if (response.status === 200) {
 					console.log("Success!");
-					const modal = document.getElementById("confirm-delete");
+					const modal = document.getElementById(DELETE_MODAL_ID);
 					modal?.setAttribute("class", "modal fade");
 					const modalBackdrop =
 						document.getElementsByClassName("modal-backdrop");
@@ -49,22 +54,13 @@ function TransactionListItem({ transaction }: TransactionProps) {
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>
-						{/* <button
-							className="btn btn-main py-1 px-2 mx-tiny"
-							type="button"
-							data-bs-toggle="modal"
-							data-bs-target="#edit-transaction-modal"
-						>
-							<i className="fa-solid fa-pencil"></i>
-						</button> */}
-						<BtnEdit modal_target="#edit-transaction-modal">
-							{null}
-						</BtnEdit>
+						<BtnEdit modal_target={EDIT_MODAL_ID}>{null}</BtnEdit>
 						<EditTransaction transaction={transaction} />
-						<BtnDelete modal_target="#confirm-delete">
-							{null}
-						</BtnDelete>
-						<ConfirmDelete handleDelete={handleDelete} />
+						<BtnDelete modalId={DELETE_MODAL_ID}>{null}</BtnDelete>
+						<ConfirmDelete
+							modalId={DELETE_MODAL_ID}
+							handleDelete={handleDelete}
+						/>
 					</span>
 				</div>
 			</div>
