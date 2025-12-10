@@ -9,22 +9,32 @@ interface EditTransactionProps {
 function EditTransaction({ transaction }: EditTransactionProps) {
 	const UPDATE_TXN_URL = `/api/v1/transaction/update/${transaction.id}`;
 	const MODAL_ID = `edit-transaction-modal-${transaction.id}`;
-	// var type = "expense";
-	// if (transaction.amount > 0) {
-	// 	type = "income";
-	// }
+	const isExpense = transaction.type === "EXPENSE";
 	console.log("transaction amount: ", transaction.amount);
+	const getTxDate = () => {
+		const txDate = new Date(transaction.date);
+		const year = txDate.getFullYear();
+		const month = String(txDate.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+		const day = String(txDate.getDate()).padStart(2, "0");
+		const formattedDate = `${year}-${month}-${day}`;
+		return formattedDate;
+	};
+
+	const formattedDate = getTxDate();
 	const [accountName, setAccountName] = useState(transaction.accountName);
+	const [type, setType] = useState(transaction.type);
 	const [category, setCategory] = useState(transaction.category);
 	const [amount, setAmount] = useState(transaction.amount);
-	const [date, setDate] = useState(transaction.date);
+	const [date, setDate] = useState(formattedDate);
+	console.log("transaction type expense: ", transaction.type === "EXPENSE");
+	console.log("transaction type income: ", transaction.type === "INCOME");
 
 	// const navigate = useNavigate();
 
-	console.log("account: ", accountName);
-	console.log("category: ", category);
-	console.log("amount: ", amount);
-	console.log("date: ", date);
+	// console.log("account: ", accountName);
+	// console.log("category: ", category);
+	// console.log("amount: ", amount);
+	// console.log("date: ", date);
 
 	const handleUpdateTransaction = (e: FormEvent) => {
 		e.preventDefault();
@@ -35,6 +45,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 			UPDATE_TXN_URL,
 			{
 				accountName: accountName,
+				type: type,
 				category: category,
 				amount: amount,
 				date: date,
@@ -85,13 +96,17 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										type="radio"
 										className="btn-check invisible"
 										name="type"
-										id="edit-expense"
+										id={`edit-expense-${transaction.id}`}
 										autoComplete="off"
-										defaultChecked={transaction.amount < 0}
+										value="EXPENSE"
+										defaultChecked={isExpense}
+										onChange={(e) => {
+											setType(e.target.value);
+										}}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill rounded-start"
-										htmlFor="edit-expense"
+										htmlFor={`edit-expense-${transaction.id}`}
 									>
 										Expense
 									</label>
@@ -100,13 +115,17 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										type="radio"
 										className="btn-check"
 										name="type"
-										id="edit-income"
+										id={`edit-income-${transaction.id}`}
 										autoComplete="off"
-										defaultChecked={transaction.amount > 0}
+										value="INCOME"
+										defaultChecked={!isExpense}
+										onChange={(e) => {
+											setType(e.target.value);
+										}}
 									/>
 									<label
 										className="btn btn-outline-primary flex-fill"
-										htmlFor="edit-income"
+										htmlFor={`edit-income-${transaction.id}`}
 									>
 										Income
 									</label>
@@ -114,7 +133,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 
 								<div className="mb-3">
 									<label
-										htmlFor="edit-amount"
+										htmlFor={`edit-amount-${transaction.id}`}
 										className="form-label"
 									>
 										Amount
@@ -122,7 +141,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 									<input
 										type="number"
 										className="form-control"
-										id="edit-amount"
+										id={`edit-amount-${transaction.id}`}
 										defaultValue={transaction.amount}
 										onChange={(e) => {
 											setAmount(e.target.value);
@@ -132,7 +151,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="edit-select-account"
+										htmlFor={`edit-select-account-${transaction.id}`}
 										className="form-label"
 									>
 										Account
@@ -140,20 +159,20 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="edit-select-account"
+										id={`edit-select-account-${transaction.id}`}
 										defaultValue={transaction.accountName}
 										onChange={(e) => {
 											setAccountName(e.target.value);
 										}}
 										required
 									>
-										<option
+										{/* <option
 											value=""
 											disabled
 											defaultChecked
 										>
 											- Select Account -
-										</option>
+										</option> */}
 										<option value="Cash">Cash</option>
 										<option value="Mpesa">Mpesa</option>
 										<option value="Current Account">
@@ -166,7 +185,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="edit-select-category"
+										htmlFor={`edit-select-category-${transaction.id}`}
 										className="form-label"
 									>
 										Category
@@ -174,20 +193,20 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 									<select
 										className="form-select"
 										aria-label="Default select example"
-										id="edit-select-category"
+										id={`edit-select-category-${transaction.id}`}
 										defaultValue={transaction.category}
 										onChange={(e) => {
 											setCategory(e.target.value);
 										}}
 										required
 									>
-										<option
+										{/* <option
 											value=""
 											disabled
 											defaultChecked
 										>
 											- Select Category -
-										</option>
+										</option> */}
 										<option value="Food">Food</option>
 										<option value="Transport">
 											Transport
@@ -199,7 +218,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 								</div>
 								<div className="mb-3">
 									<label
-										htmlFor="edit-date"
+										htmlFor={`edit-date-${transaction.id}`}
 										className="form-label"
 									>
 										Date
@@ -207,8 +226,8 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 									<input
 										type="date"
 										className="form-control"
-										id="edit-date"
-										defaultValue={transaction.date}
+										id={`edit-date-${transaction.id}`}
+										defaultValue={formattedDate}
 										// placeholder={formattedDate}
 										onChange={(e) => {
 											setDate(e.target.value);

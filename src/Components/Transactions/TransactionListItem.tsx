@@ -54,7 +54,7 @@ function TransactionListItem({ transaction }: TransactionProps) {
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>
-						<BtnEdit modal_target={EDIT_MODAL_ID}>{null}</BtnEdit>
+						<BtnEdit modalId={EDIT_MODAL_ID}>{null}</BtnEdit>
 						<EditTransaction transaction={transaction} />
 						<BtnDelete modalId={DELETE_MODAL_ID}>{null}</BtnDelete>
 						<ConfirmDelete

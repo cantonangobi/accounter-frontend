@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
 interface BtnEditProps {
-	modal_target: string;
+	modalId: string;
 	children: ReactNode;
 }
-function BtnEdit({ modal_target, children }: BtnEditProps) {
-	const MODAL_TARGET = `#${modal_target}`;
+function BtnEdit({ modalId, children }: BtnEditProps) {
+	const MODAL_TARGET = `#${modalId}`;
 	return (
 		<button
 			className="btn btn-main py-1 px-2  mx-tiny"
