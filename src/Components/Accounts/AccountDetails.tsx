@@ -114,7 +114,7 @@ function AccountDetails() {
 							<i className="fa-solid fa-pencil"></i>
 							Edit
 						</button> */}
-						<BtnEdit modalId="#edit-account-modal">Edit</BtnEdit>
+						<BtnEdit modalId="edit-account-modal">Edit</BtnEdit>
 						<EditAccount account={account} />
 						{/* <button
 							className="btn btn-danger py-1 px-2 mx-tiny"
