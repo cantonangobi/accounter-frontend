@@ -1,6 +1,10 @@
 import CreateTransaction from "./CreateTransaction";
 
-function TransactionSideBar() {
+interface Props {
+	accounts: any[];
+}
+
+function TransactionSideBar({ accounts }: Props) {
 	return (
 		<div
 			id="sidebar"
@@ -15,7 +19,7 @@ function TransactionSideBar() {
 			>
 				Add Transaction
 			</button>
-			<CreateTransaction />
+			<CreateTransaction accounts={accounts} />
 		</div>
 	);
 }

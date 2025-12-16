@@ -10,6 +10,11 @@ strong{
   /* background: linear-gradient(90deg, #113632 0%, #206c65 100%);  */
 }
 
+.color-main{
+  color: #206c65;
+  /* background: linear-gradient(90deg, #113632 0%, #206c65 100%);  */
+}
+
 /* .btn{
   border-radius: 1em;
 } */
@@ -42,10 +47,10 @@ strong{
   font-size: 2.2em;
 }
 .font-inter {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-optical-sizing: auto;
   /* font-weight: <weight>; */
-  font-style: normal;
+  /* font-style: normal; */
 }
 
 .list-item{

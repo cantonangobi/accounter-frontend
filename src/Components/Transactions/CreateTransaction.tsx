@@ -4,7 +4,10 @@ import Axios from "../Api/Axios";
 
 const CREATE_TXN_URL = "/api/v1/transaction/create";
 
-function CreateTransaction() {
+interface Props {
+	accounts: any[];
+}
+function CreateTransaction({ accounts }: Props) {
 	const getCurrentDate = () => {
 		const today = new Date();
 		const year = today.getFullYear();
@@ -163,23 +166,24 @@ function CreateTransaction() {
 											setAccountName(e.target.value);
 										}}
 										required
-										// defaultValue={""}
+										defaultValue=""
 									>
-										<option
-											value=""
-											disabled
-											defaultChecked
-										>
+										<option value="" disabled>
 											- Select Account -
 										</option>
-										<option value="Cash">Cash</option>
+										{accounts.map((account: any) => (
+											<option value={account.name}>
+												{account.name}
+											</option>
+										))}
+										{/* <option value="Cash">Cash</option>
 										<option value="Mpesa">Mpesa</option>
 										<option value="Current Account">
 											Current Account
 										</option>
 										<option value="Savings Account">
 											Savings Account
-										</option>
+										</option> */}
 									</select>
 								</div>
 								<div className="mb-3">
@@ -197,12 +201,9 @@ function CreateTransaction() {
 											setCategory(e.target.value);
 										}}
 										required
+										defaultValue=""
 									>
-										<option
-											value=""
-											disabled
-											defaultChecked
-										>
+										<option value="" disabled>
 											- Select Category -
 										</option>
 										<option value="Food">Food</option>

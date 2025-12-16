@@ -90,11 +90,13 @@ function AccountDetails() {
 		<main className="container-fluid d-flex flex-column h-100">
 			<div className="card">
 				<div className="card-header d-flex justify-content-between">
-					<span className="fs-2 d-flex my-auto">
+					<span className="d-flex my-auto">
 						<a href="/accounts">
-							<i className="fa-solid fa-chevron-left text-black"></i>
+							<i className="fs-1 fa-solid fa-chevron-left text-black"></i>
 						</a>
-						<h1 className="m-0">Account Details</h1>
+						<h1 className="fs-2 my-0 mx-2">
+							{account.name} Details
+						</h1>
 					</span>
 					{/* <h1 className="fs-2 m-0">
 						<a href="accounts" className="border">
@@ -130,22 +132,22 @@ function AccountDetails() {
 						/>
 					</span>
 				</div>
-				<div className="card-body m-1 px-4 text-start fs-4">
-					<div className="my-2">
-						<strong className="fs-3">Account Name: </strong>
+				<div className="card-body m-1 px-4 text-center fs-4">
+					{/* <div className="my-2">
+						<strong className="fs-3">Name: </strong>
 						{account?.name}
-					</div>
+					</div> */}
 
 					<div className="my-2">
-						<strong className="fs-3">Balance: </strong>
-						{account?.balance}
+						<span className="fs-3">Balance: </span>
+						<span className="fs-1">{account?.balance}</span>
 					</div>
 				</div>
 				{/* <div className="card-footer"></div> */}
 			</div>
 			<div className="card my-2 flex-fill">
 				<div className="card-header text-start">
-					<h2 className="m-0">Transactions</h2>
+					<h2 className=" fs-2 m-0">{account.name} Transactions</h2>
 				</div>
 				<div className="card-body p-1">
 					{transactions.map((transaction: any) => (

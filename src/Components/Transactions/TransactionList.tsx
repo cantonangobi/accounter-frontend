@@ -6,12 +6,14 @@ import Axios from "../Api/Axios";
 // 	transaction_list: any;
 // }
 const GET_TXNS_URL = "/api/v1/transaction/getall";
+
 function TransactionList() {
 	const [transactions, setTransactions] = useState([]);
 
 	useEffect(() => {
 		const sessionToken = window.sessionStorage.getItem("sessionToken");
 		console.log(`session token: ${sessionToken}`);
+
 		Axios.get(GET_TXNS_URL, {
 			headers: { Authorization: sessionToken },
 		})
