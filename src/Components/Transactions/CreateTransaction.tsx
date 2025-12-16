@@ -145,6 +145,8 @@ function CreateTransaction({ accounts }: Props) {
 										type="number"
 										className="form-control"
 										id="create-amount"
+										min="0"
+										max="999999999.99"
 										onChange={(e) => {
 											setAmount(e.target.value);
 										}}
