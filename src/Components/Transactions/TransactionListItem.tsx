@@ -51,7 +51,7 @@ function TransactionListItem({ transaction, accounts }: Props) {
 					<span>{transaction.accountName}</span>
 				</div>
 				<div className="col-3 py-2 text-end">
-					<span>{transaction.amount}</span>
+					<span>{transaction.amount} KES</span>
 				</div>
 				<div className="col-2 py-1 text-end ">
 					<span>

@@ -7,6 +7,7 @@ import BtnDelete from "../All/BtnDelete";
 import { useEffect, useState } from "react";
 import { getSessionToken } from "../Security/SessionManagement";
 import Axios from "../Api/Axios";
+import CreateTransaction from "../Transactions/CreateTransaction";
 
 function AccountDetails() {
 	const { id } = useParams<{ id: string }>();
@@ -159,8 +160,17 @@ function AccountDetails() {
 				{/* <div className="card-footer"></div> */}
 			</div>
 			<div className="card my-2 flex-fill">
-				<div className="card-header text-start">
+				<div className="card-header text-start d-flex justify-content-between">
 					<h2 className=" fs-2 m-0">{account.name} Transactions</h2>
+					<button
+						className="btn btn-main p-2"
+						type="button"
+						data-bs-toggle="modal"
+						data-bs-target="#create-transaction-modal"
+					>
+						Add Transaction
+					</button>
+					<CreateTransaction accounts={accounts} />
 				</div>
 				<div className="card-body p-1">
 					{transactions.map((transaction: any) => (
