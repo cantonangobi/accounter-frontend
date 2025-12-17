@@ -7,11 +7,12 @@ import EditTransaction from "./EditTransaction";
 
 // const DELETE_TXN_URL = "/api/v1/transaction/delete"
 
-interface TransactionProps {
+interface Props {
 	transaction: any;
+	accounts: any[];
 }
 
-function TransactionListItem({ transaction }: TransactionProps) {
+function TransactionListItem({ transaction, accounts }: Props) {
 	const EDIT_MODAL_ID = `edit-transaction-modal-${transaction.id}`;
 	const DELETE_MODAL_ID = `confirm-delete-${transaction.id}`;
 
@@ -55,7 +56,10 @@ function TransactionListItem({ transaction }: TransactionProps) {
 				<div className="col-2 py-1 text-end ">
 					<span>
 						<BtnEdit modalId={EDIT_MODAL_ID}>{null}</BtnEdit>
-						<EditTransaction transaction={transaction} />
+						<EditTransaction
+							transaction={transaction}
+							accounts={accounts}
+						/>
 						<BtnDelete modalId={DELETE_MODAL_ID}>{null}</BtnDelete>
 						<ConfirmDelete
 							modalId={DELETE_MODAL_ID}

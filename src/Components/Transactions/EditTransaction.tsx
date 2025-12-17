@@ -2,11 +2,12 @@ import Axios from "../Api/Axios";
 import { useState, type FormEvent } from "react";
 import { getSessionToken } from "../Security/SessionManagement";
 
-interface EditTransactionProps {
+interface Props {
 	transaction: any;
+	accounts: any[];
 }
 
-function EditTransaction({ transaction }: EditTransactionProps) {
+function EditTransaction({ transaction, accounts }: Props) {
 	const UPDATE_TXN_URL = `/api/v1/transaction/update/${transaction.id}`;
 	const MODAL_ID = `edit-transaction-modal-${transaction.id}`;
 	const isExpense = transaction.type === "EXPENSE";
@@ -173,14 +174,20 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										>
 											- Select Account -
 										</option> */}
-										<option value="Cash">Cash</option>
+										{accounts.map((account: any) => (
+											<option value={account.name}>
+												{account.name}
+											</option>
+										))}
+
+										{/* <option value="Cash">Cash</option>
 										<option value="Mpesa">Mpesa</option>
 										<option value="Current Account">
 											Current Account
 										</option>
 										<option value="Savings Account">
 											Savings Account
-										</option>
+										</option> */}
 									</select>
 								</div>
 								<div className="mb-3">
@@ -207,6 +214,7 @@ function EditTransaction({ transaction }: EditTransactionProps) {
 										>
 											- Select Category -
 										</option> */}
+
 										<option value="Food">Food</option>
 										<option value="Transport">
 											Transport

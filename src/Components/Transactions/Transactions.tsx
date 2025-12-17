@@ -36,7 +36,7 @@ function Transactions() {
 					<TransactionSideBar accounts={accounts} />
 				</div>
 				<div className="col-md-9 p-2 min-h-100 h-md-auto">
-					<TransactionList />
+					<TransactionList accounts={accounts} />
 				</div>
 			</div>
 		</main>

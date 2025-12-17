@@ -5,9 +5,13 @@ import Axios from "../Api/Axios";
 // interface TransactionListProps {
 // 	transaction_list: any;
 // }
+interface Props {
+	accounts: any[];
+}
+
 const GET_TXNS_URL = "/api/v1/transaction/getall";
 
-function TransactionList() {
+function TransactionList({ accounts }: Props) {
 	const [transactions, setTransactions] = useState([]);
 
 	useEffect(() => {
@@ -37,6 +41,7 @@ function TransactionList() {
 				<TransactionListItem
 					transaction={transaction}
 					key={transaction.id}
+					accounts={accounts}
 				/>
 			))}
 		</div>
