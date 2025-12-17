@@ -17,7 +17,7 @@ function AccountListItem({ account }: AccountProps) {
 		>
 			<div className="row">
 				<div className="col-6 text-start">{account.name}</div>
-				<div className="col-6 text-end">{account.balance}</div>
+				<div className="col-6 text-end">{account.balance} KES</div>
 			</div>
 		</button>
 	);
