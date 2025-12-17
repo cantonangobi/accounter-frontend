@@ -9,7 +9,7 @@ function BtnDelete({ modalId, children }: BtnDeleteProps) {
 	return (
 		<>
 			<button
-				className="btn btn-danger py-1 px-2 mx-tiny"
+				className="btn btn-danger py-1 px-2 mx-tiny rounded-pill"
 				type="button"
 				data-bs-toggle="modal"
 				data-bs-target={MODAL_TARGET}
